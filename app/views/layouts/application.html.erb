@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BlueGreen</title>
+  <title>BlueGreenChic</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
+<main>
 <%= yield %>
-
+</main>
+<footer class="grey lighten-1 page-footer">
+  <div class="row">
+  	<div class="reserved grey-text text-lighten-4 col s12 m4 l6">
+        © 2016 Blue Green Chic | All Rights Reserved
+    </div>
+  </div>
+</footer>
 </body>
 </html>

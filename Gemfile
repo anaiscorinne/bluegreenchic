@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-# gem 'materialize-sass'
+gem 'materialize-sass'
 
-# gem 'animate-rails'
+gem 'animate-rails'
 
 # gem 'bootstrap-sass', '~> 3.3.6' 
 
