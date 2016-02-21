@@ -18,21 +18,25 @@
 @import "materialize";
 @import "animate";
 @import url(https://fonts.googleapis.com/css?family=Lora|Open+Sans+Condensed:300);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
 
-.hp-motto {
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 60px;
-	font-style: italic;
-	position: absolute;
-	top: 46%;
-	right: 30%;
-	left: 3%
-
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.hp-motto-image {
-	height: 100%;
-	position: relative;
+main {
+    flex: 1 0 auto;
+  }
+
+.text-in-parallax {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+.parallax-container {
+      height: 450px;
 }
 
 nav {
@@ -47,9 +51,36 @@ nav {
 .brand-logo{
 	font-family: 'Lora', serif;
 	font-size: 40px;
+	margin-left: 12px;
 }
 
 .hp-nav-list {
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 22px;
+}
+
+.hp-motto {
+	font-family: 'Poiret One', cursive;
+	font-size: 52px;
+	font-style: italic;
+	position: absolute;
+	top: 46%;
+	right: 30%;
+	left: 3%
+
+}
+
+.hp-motto-image {
+	height: 100%;
+	position: relative;
+}
+
+.sm-icons {
+	margin-left: 5px;
+}
+
+.reserved {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	padding: 0 20px;
 }

@@ -2,30 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-main {
-    flex: 1 0 auto;
-  }
-
-
-// h1, {
-// 	font-family: 'Lora', serif;
-// }
-
-// ul, li {
-// 	font-family: 'Open Sans Condensed', sans-serif;
-// }
-
-.text-in-parallax {
-  margin-top: 40px !important;
-  margin-bottom: 40px !important;
-}
-
 .hp-h5-title {
 	font-family: 'Lora', serif;
 	font-size: 30px;
@@ -37,12 +13,6 @@ main {
 	font-size: 16px;
 }
 
- .parallax-container {
-      height: 450px;
-    }
+ 
 
-.reserved {
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 14px;
-}
 

@@ -6,16 +6,45 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdn.materialdesignicons.com/1.4.57/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <main>
+<div class="parallax-container">
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
+          <li><a href="#" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
+          <li><a href="#" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
+          <li><a href="#" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
+          <% if user_signed_in? %>
+            <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
+          <% else %>
+            <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="parallax hp-motto-image">
+    <img src="http://www.nicepcwallpapers.com/wp-content/uploads/2015/07/nature-beautiful-girl-vintage-wallpaper-hd.jpg">
+    <p class="hp-motto grey-text text-lighten-4">ethical fashion, sustainable style</p>
+  </div>
+</div>
 <%= yield %>
 </main>
 <footer class="grey lighten-1 page-footer">
   <div class="row">
-  	<div class="reserved grey-text text-lighten-4 col s12 m4 l6">
+  	<div class="left reserved grey-text text-lighten-4">
         © 2016 Blue Green Chic | All Rights Reserved
     </div>
+    <div class="right reserved grey-text text-lighten-4">
+        Made with ♥ in Miami
+    </div>
+    
   </div>
 </footer>
 </body>
