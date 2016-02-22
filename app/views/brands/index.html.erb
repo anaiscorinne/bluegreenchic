@@ -14,11 +14,17 @@
   </div>
 </div>
 
+<% @brands.each do |brand| %>
 <div class="parallax-container">
-  <div class="parallax"><img src="http://www.spelldesigns.com/blog/wp-content/uploads/isabelle2-77-of-84.jpg"></div>
+  <% if brand.image? %>
+  <div class="parallax">
+  <%= image_tag brand.image.url %>
+  </div>
+  <% else %>
+  <div class="parallax"><img src="http://www.nicepcwallpapers.com/wp-content/uploads/2015/07/nature-beautiful-girl-vintage-wallpaper-hd.jpg"></div>
+  <% end %>
 </div>
 
-<% @brands.each do |brand| %>
 <div class="container text-in-parallax">
   <div class="section ">
     <div class="row ">
@@ -29,6 +35,9 @@
           </a>
             <p class="hp-main-description"><%= brand.description %></p>
             <p>Check out <%= brand.name %>'s Instagram: <a href="#"><%= brand.instagram %></a> </p>
+            <% if current_user && @user.role == "admin" %>
+              <a href="/brands/<%=brand.id%>/edit">Details</a>
+            <% end %>
         </div>
       </div>
     </div>

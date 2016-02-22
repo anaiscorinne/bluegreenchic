@@ -9,4 +9,8 @@ class Brand < ActiveRecord::Base
   validates :website, presence: true
   validates :instagram, presence: true
 
+  attr_accessor :image_cache
+
+  mount_uploader :image, BrandImageUploader
+
 end

@@ -1,10 +1,8 @@
-<!-- LINKS TO OTHER PAGES -->
-<!-- THIS WILL BE RENDERED -->
 <div class="container text-in-parallax">
   <div class="section ">
     <div class="row ">
       <div class="col s12 m12">
-            <h5 class="center hp-h5-title">Add a new Brand</h5>
+            <h5 class="center hp-h5-title">Edit: <%= @brand.name %></h5>
               <%= form_for [@brand], html: { multipart: true } do |f| %>
 
                 <%= f.label :name %>
@@ -24,18 +22,13 @@
                 <%= image_tag(@brand.image_url) if @brand.image? %>
                 <%= f.file_field :image %>
                 <%= f.hidden_field :image_cache %>
+                <br><br><br>
+                <%= f.submit "Save Edits", :class => "waves-effect waves-light btn" %>
+								<%= link_to "Delete", @brand, :method => "delete", :class => "waves-effect waves-light btn red" %>
                 <br>
-                <%= f.submit "Save" %>
-                <br>
-                <%= link_to("Cancel", brands_path) %>
-                <br>
-                <%= link_to("Home", "/") %>
               <% end %>
 
         </div>
     </div>
   </div>
 </div>
-
-
-<!-- CONTACT US -->
