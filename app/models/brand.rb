@@ -8,6 +8,7 @@ class Brand < ActiveRecord::Base
   validates :description, presence: true
   validates :website, presence: true
   validates :instagram, presence: true
+  validates :image, presence: true
 
   attr_accessor :image_cache
 
