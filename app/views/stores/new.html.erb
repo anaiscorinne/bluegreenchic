@@ -4,14 +4,11 @@
   <div class="section ">
     <div class="row ">
       <div class="col s12 m12">
-            <h5 class="center hp-h5-title">Add a new Brand</h5>
-              <%= form_for [@brand], html: { multipart: true } do |f| %>
+            <h5 class="center hp-h5-title">Add a new Store</h5>
+              <%= form_for [@store], html: { multipart: true } do |f| %>
 
                 <%= f.label :name %>
                 <%= f.text_field :name %>
-                <br>
-                <%= f.label :description %>
-                <%= f.text_area :description %>
                 <br>
                 <%= f.label :website %>
                 <%= f.text_field :website %>
@@ -19,8 +16,14 @@
                 <%= f.label :instagram %>
                 <%= f.text_field :instagram %>
                 <br>
+                <%= f.label :description %>
+                <%= f.text_area :description %>
+                <br>
+                <%= f.label :address %>
+                <%= f.text_area :address %>
+                <br>
                 <label>Image</label>
-                <%= image_tag(@brand.image_url) if @brand.image? %>
+                <%= image_tag(@store.image_url) if @store.image? %>
                 <%= f.file_field :image %>
                 <%= f.hidden_field :image_cache %>
                 <br>

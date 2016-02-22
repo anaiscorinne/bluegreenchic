@@ -8,4 +8,8 @@ class Store < ActiveRecord::Base
   validates :description, presence: true
   validates :address, presence: true
 
+  attr_accessor :image_cache
+
+  mount_uploader :image, StoreUploader
+
 end
