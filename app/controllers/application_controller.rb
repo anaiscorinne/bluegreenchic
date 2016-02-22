@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def authorize_user
-  end
+ def admin_only
+ 	unless current_user && current_user.role == "admin"
+ 		flash[:access_denied] = "Access DENIED. You must be an admin to see this page."
+ 		redirect_to root_path
+ 	end
+ end
 
   protected
   	def configure_permitted_parameters
