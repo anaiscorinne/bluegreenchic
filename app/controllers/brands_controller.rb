@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-	before_action :admin_only, only: [:create, :new, :destroy, :edit]
+	before_action :admin_only, only: [:create, :new, :destroy, :edit, :show]
 
 	def index
 		@brands = Brand.all 
@@ -12,18 +12,26 @@ class BrandsController < ApplicationController
 	def create
 		@brand = Brand.new(brand_params)
 			if @brand.save
-				link_to brands_path
+				redirect_to brands_path
 			else
 				render :new
 			end
 	end
 
+	def show
+		@brand = Brand.find_by(id: params[:id])
+		render 'show'
+	end
+
 	def destroy
+		Brand.find(params[:id]).destroy
+		redirect_to brands_path
 	end
 
 	private
 	def brand_params
 		params.require(:brand).permit(:name, :description, :website, :instagram)
+	end
 end
 
 

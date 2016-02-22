@@ -1,0 +1,37 @@
+<!-- LINKS TO OTHER PAGES -->
+<!-- THIS WILL BE RENDERED -->
+<div class="container text-in-parallax">
+  <div class="section ">
+    <div class="row ">
+      <div class="col s12 m12">
+        <div class="icon-block">
+          <a href="#">
+            <h5 class="center hp-h5-title">VALUE KEYS</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-container">
+  <div class="parallax"><img src="http://www.spelldesigns.com/blog/wp-content/uploads/isabelle2-77-of-84.jpg"></div>
+</div>
+
+<% @brands.each do |brand| %>
+<div class="container text-in-parallax">
+  <div class="section ">
+    <div class="row ">
+      <div class="col s12 m12">
+        <div class="icon-block">
+          <a href="<%= brand.website %>">
+            <h5 class="center hp-h5-title"><%= brand.name %></h5>
+          </a>
+            <p class="hp-main-description"><%= brand.description %></p>
+            <p>Check out <%= brand.name %>'s Instagram: <a href="#"><%= brand.instagram %></a> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
