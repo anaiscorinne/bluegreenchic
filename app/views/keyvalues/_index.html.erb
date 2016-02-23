@@ -1,0 +1,30 @@
+
+<ul class="keyvalue-list">
+	<% @keyvalues.each do |value| %>
+		<a class="modal-trigger-key" href="#value<%= value.id %>">
+			<li class="keyvalue-list-li">
+				<i class="<%= value.icon %> small icon-<%= value.id %>"></i>
+				<p class="keyvalue-names"><%= value.name %></p>
+				<% if current_user && @user.role == "admin" %>
+            <a href="/keyvalues/<%=value.id%>/edit" class="store-card-body">Edit</a>
+         <% end %>
+			</li>
+		</a>
+
+  <!-- Modal Structure -->
+  <div id="value<%= value.id %>" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    	<i class="<%= value.icon %> small icon-<%= value.id %>"></i>
+      <h5 class="value-modal-title light-blue-text text-darken-1;"><%= value.name %></h5>
+      <p class="value-modal-body"><%= value.description %></p>
+      <p class="value-modal-body"><%= value.description %></p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close"><i class="small mdi mdi-chevron-double-down"></i></a>
+    </div>
+  </div>
+
+	
+
+<% end %>
+</ul>

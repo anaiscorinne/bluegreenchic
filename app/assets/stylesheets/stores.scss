@@ -6,6 +6,16 @@
 	font-size: 52px;
 	font-style: italic;
 	position: absolute;
+	top: 60%;
+	right: 0%;
+	left: 6%
+}
+
+.store-index-motto {
+	font-family: 'Poiret One', cursive;
+	font-size: 52px;
+	font-style: italic;
+	position: absolute;
 	top: 30%;
 	right: 0%;
 	left: 6%
@@ -15,31 +25,44 @@
 	margin-top: 25px;
 }
 
+.store-card-main {
+	margin: 0 10px;
+}
+
 .store-image-holder {
 	height: 200px;
 	width: auto;
 }
 
 .card-title {
-	font-family: 'Lora', serif;
+	font-family: 'Poiret One', cursive;
+	font-size: 15px;
 }
 
 .store-card-body {
 	font-family: 'Open Sans Condensed', sans-serif;
+	text-align: justify;
+  text-justify: inter-word;
 }
 
 .instagram-modal-text {
-	font-family: 'Lora', serif;
+	font-family: 'Poiret One', cursive;
 	font-size: 34px;
 	color: black;
 }
 
 .the-brands-title {
-	font-family: 'Lora', serif;
+	font-family: 'Poiret One', cursive;
 	font-size: 28px;
 }
 
 .store-body {
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 18px;
+	text-align: justify;
+  text-justify: inter-word;
+}
+
+.modal-footer-font {
+	font-family: 'Open Sans Condensed', sans-serif;
 }

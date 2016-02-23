@@ -19,7 +19,7 @@
   </div>
    <div class="parallax hp-motto-image">
       <%= image_tag 'pink-reformation.jpg' %>
-      <p class="store-page-motto"><span class="deep-orange-text text-darken-4">ethical fashion,<br>sustainable style</span></p>
+      <p class="store-index-motto"><span class="deep-orange-text text-darken-4">ethical fashion,<br>sustainable style</span></p>
     </div>
 </div>
 <!-- LINKS TO OTHER PAGES -->
@@ -29,7 +29,7 @@
 <!-- <div class="col s12 m6"> -->
 <% @stores.each do |store| %>
   <div class="col s12 l4">
-     <div class="card small">
+     <div class="card small" style="margin: 0 15px;">
         <div class="card-image waves-effect waves-block waves-light">
           <div class="store-image-holder valign-wrapper">
             <%= image_tag store.image.url, :class => "activator"%>
@@ -38,10 +38,12 @@
         <div class="card-content">
           <span class="card-title activator light-blue-text text-darken-1"><%= store.name %><i class="material-icons right grey-text text-lighten-1">more_vert</i></span>
         </div>
+
         <div class="card-reveal">
           <span class="card-title light-blue-text text-darken-1"><%= store.name %><i class="material-icons right grey-text text-lighten-1">close</i></span>
+          <hr>
           <p class="store-card-body"><%= store.desc_preview %></p>
-          <a href="stores/<%=store.id%>" class="store-card-body">Tell me more...</a></p>
+          <a href="stores/<%=store.id%>" class="store-card-body">Show me more...</a></p>
           <% if current_user && @user.role == "admin" %>
             <a href="/stores/<%=store.id%>/edit" class="store-card-body">Edit Store</a>
           <% end %>

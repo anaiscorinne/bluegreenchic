@@ -1,3 +1,44 @@
 // Place all the styles related to the keyvalues controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// .keyvalue-list {
+// 	list-style-type: none;
+// }
+
+.keyvalue-list li {
+	display: inline-block;
+	list-style: none;
+}
+
+.keyvalue-list-li {
+	padding: 0px 40px;
+}
+
+.keyvalue-names {
+	font-size: 16px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #757575 !important;
+}
+
+.modal-fixed-footer, .lean-overlay {
+	background: white !important;
+}
+
+.value-modal-body {
+	text-align: justify;
+  text-justify: inter-word;
+  font-family: 'Open Sans Condensed', sans-serif;
+	// font-color: grey-text text-lighten-4;
+	font-size: 16px;
+}
+
+.value-modal-title {
+	font-family: 'Poiret One', cursive;
+	font-size: 40px;
+}
+
+
+
+
+

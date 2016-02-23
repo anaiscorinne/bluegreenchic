@@ -23,11 +23,9 @@
   </div>
 </div>
 
-<div class="container text-in-parallax value-nav">
+<div class="text-in-parallax value-nav-class">
   <div class="" id="value-nav">
-  <a href="#">
-    <h5 class="center hp-h5-title">VALUE KEYS</h5>
-  </a>
+      <%= render "keyvalues/index" %>
   </div>
 </div>
 
@@ -39,16 +37,20 @@
       <div class="section ">
         <div class="row ">
           <div class="col s12 m6">
-            <%= image_tag brand.image.url, :class => "responsive-img right-align brand-image" %>
+            <%= image_tag brand.image.url, :class => "responsive-img right-align brand-image-left" %>
           </div>
           <div class="col s12 m6">
-            <div class="brand-body">
-              <a href=""><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
-              <a href=""><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
-              <a href=""><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
-              <a href="<%= brand.website %>" class="right-align brand-index-title"><%= brand.name %></a>
+            <div class="brand-body-right">
+              <span class="brand-social-media right">
+                <a target="_blank" href="<%= brand.facebook %>"><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
+                <a target="_blank" href="<%= brand.twitter %>"><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
+                <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
+              </span>
+                <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
+                <br><br>
+                <p>Display VALUE ICONS here</p>
               <p class="brand-index-page"><%= brand.description %></p>
-              <p>Check out <%= brand.name %>'s Instagram: <a href="#"><%= brand.instagram %></a> </p>
+              <a href="#"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
               <% if current_user && @user.role == "admin" %>
                 <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
               <% end %>
@@ -65,20 +67,23 @@
       <div class="section ">
         <div class="row ">
           <div class="col s12 m6">
-            <div class="brand-body">
-              <a href="<%= brand.website %>" class="right-align brand-index-title"><%= brand.name %></a>
-              <a href=""><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
-              <a href=""><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
-              <a href=""><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
+            <div class="brand-body-left">
+              <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
+              <span class="brand-social-media right">
+                <a target="_blank" href="<%= brand.facebook %>"><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
+                <a target="_blank" href="<%= brand.twitter %>"><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
+                <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
+              </span>
+              <br>
               <p class="brand-index-page"><%= brand.description %></p>
-              <p>Check out <%= brand.name %>'s Instagram: <a href="#"><%= brand.instagram %></a> </p>
+              <a href="#"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
               <% if current_user && @user.role == "admin" %>
-                <a href="/brands/<%=brand.id%>/edit">Edit | </a>
+                <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
               <% end %>
               </div>
             </div>
             <div class="col s12 m6">
-            <%= image_tag brand.image.url, :class => "responsive-img left-align brand-image" %>
+            <%= image_tag brand.image.url, :class => "responsive-img left-align brand-image-right" %>
             </div>
         </div>
       </div>

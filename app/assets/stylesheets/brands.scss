@@ -13,8 +13,11 @@
 }
 
 #value-nav {
-	position: relative;
+	position: relative; 
+	background-color: rgb(255,255,255);
+	padding: 20px 0px;
 	width: 100%;
+	text-align: center;
 
 }
 
@@ -24,23 +27,51 @@
 	left: 0;
 	z-index: 1;
 	background-color: rgb(255,255,255);
-	padding: 20px 0px;
+	width: 100%;
+	text-align: center;
+	padding: 55px 30px 0 30px;
+}
+
+.value-nav-class {
+	height: 100px;
 	width: 100%;
 }
 
-.value-nav {
-	height: 100px;
+.brand-image-left {
+	padding: 30px 30px 0 60px;
 }
 
-.brand-image {
-	padding: 25px;
+.brand-image-right {
+	padding: 30px 60px 0 30px;
 }
 
-.brand-body {
-	padding: 25px;
+.brand-body-left {
+	padding: 30px 30px 0 60px;
+	text-align: justify;
+  text-justify: inter-word;
+  font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+}
+
+.brand-body-right {
+	padding: 30px 60px 0 30px;
+	text-align: justify;
+  text-justify: inter-word;
+  font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
 }
 
 .brand-index-title {
 	font-family: 'Poiret One', cursive;
 	font-size: 50px;
 }
+
+.brand-social-media {
+
+}
+
+
+
+
+
+

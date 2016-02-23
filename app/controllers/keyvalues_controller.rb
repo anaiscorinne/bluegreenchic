@@ -1,7 +1,7 @@
 class KeyvaluesController < ApplicationController
 	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update]
 
-		def index
+	def index
 		@keyvalues = Keyvalue.all 
 		@user = current_user
 	end
@@ -32,7 +32,7 @@ class KeyvaluesController < ApplicationController
 		@keyvalue = Keyvalue.find_by(id: params[:id])
 			if @keyvalue.update_attributes(keyvalue_params)
 				@keyvalue.save
-				redirect_to stores_path
+				redirect_to brands_path
 			else
 				render :edit
 			end
@@ -50,7 +50,3 @@ class KeyvaluesController < ApplicationController
 	end
 end
 
-
-
-
-end

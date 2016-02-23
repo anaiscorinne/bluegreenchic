@@ -4,6 +4,7 @@ class BrandsController < ApplicationController
 	def index
 		@brands = Brand.all 
 		@user = current_user
+		@keyvalues = Keyvalue.all 
 	end
 
 	def new
