@@ -1,3 +1,28 @@
+<div class="parallax-container main-header">
+  <div class="navbar-fixed main-nav">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
+          <li><a href="/blogposts" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
+          <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
+          <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
+          <% if user_signed_in? %>
+            <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
+          <% else %>
+            <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+   <div class="parallax hp-motto-image">
+      <%= image_tag 'reform41.jpeg' %>
+    <p class="store-page-motto pink-text text-darken-4"><b>ethical fashion, sustainable style</b></p>
+  </div>
+</div>
+
 <div class="container text-in-parallax">
   <div class="row">
    <div class="col s12 m4">

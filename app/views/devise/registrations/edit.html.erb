@@ -1,4 +1,32 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="parallax-container main-header">
+  <div class="navbar-fixed main-nav">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
+          <li><a href="#" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
+          <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
+          <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
+          <% if user_signed_in? %>
+            <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
+          <% else %>
+            <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+   <div class="parallax hp-motto-image valign-wrapper">
+    <%= image_tag 'ocean.jpg' %>
+    <p class="brand-motto grey-text text-lighten-4">ethical fashion, sustainable style</p>
+  </div>
+</div>
+
+<div class="container">
+<div class="col s12 m4">
+
+      <h5 class="center login-form-title">Edit <%= resource_name.to_s.humanize %></h5>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -13,7 +41,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.label :first_name %><i> (leave blank if you don't want to change it)</i><br />
+      <%= f.text_field :first_name %>
+    </div>
+    <!-- <div class="col s12 m6"> -->
+  <div class="field">
+    <%= f.label :last_name %><i> (leave blank if you don't want to change it)</i><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+        <%= f.label :birthday %><i> (leave blank if you don't want to change it)</i><br />
+        <%= f.date_field :birthday %>
+      </div>
+
+  <div class="field">
+    <%= f.label :password %> <i> (leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
@@ -23,7 +66,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i> (we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 

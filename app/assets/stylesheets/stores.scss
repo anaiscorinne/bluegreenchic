@@ -1,6 +1,15 @@
 // Place all the styles related to the stores controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.store-page-motto {
+	font-family: 'Poiret One', cursive;
+	font-size: 52px;
+	font-style: italic;
+	position: absolute;
+	top: 60%;
+	right: 0%;
+	left: 8%
+}
 
 .store-card {
 	margin-top: 25px;

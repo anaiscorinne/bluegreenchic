@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.brand-motto {
+	font-family: 'Poiret One', cursive;
+	font-size: 52px;
+	font-style: italic;
+	position: absolute;
+	top: 50%;
+	right: 30%;
+	left: 3%
+}
+
 #value-nav {
 	position: relative;
 	width: 100%;

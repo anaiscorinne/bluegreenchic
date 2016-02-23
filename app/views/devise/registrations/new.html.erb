@@ -1,10 +1,39 @@
-
+<div class="parallax-container main-header">
+  <div class="navbar-fixed main-nav">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
+          <li><a href="#" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
+          <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
+          <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
+          <% if user_signed_in? %>
+            <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
+          <% else %>
+            <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+   <div class="parallax hp-motto-image">
+    <%= image_tag 'yellow-reformation.jpg' %>
+    <p class="sign-in-motto teal-text text-lighten-1">ethical fashion, <br>sustainable style</p>
+  </div>
+</div>
 
 <div class="container text-in-parallax">
   <div class="section ">
     <div class="row ">
+      <%= render "devise/sessions/new" %>
+      
+      <div class="col s12 m4"><h5></h5>
+      </div>
+
+
       <div class="col s12 m4">
-      <h5 class="center login-form-title">Sign Up</h5>
+      <h5 class="center login-form-title">Not a member yet?</h5>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
   
@@ -51,13 +80,6 @@
 
       </div>
 
-      <div class="col s12 m4">
-        <div class="valign-wrapper">
-          <h5 class="valign"></h5>
-        </div>
-      </div>
-
-      <%= render "devise/sessions/new" %>
    
     </div>
   </div>
