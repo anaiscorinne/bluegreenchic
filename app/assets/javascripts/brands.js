@@ -4,7 +4,7 @@
 $(document).ready(function(){
 $(window).bind('scroll', function() {
 	var distanceFromTop = $(this).scrollTop();
-	var headerHeight = $('.hp-motto-image').height() - $('.main-nav').height();
+	var headerHeight = $('.main-header').height() - $('.main-nav').height();
 		if (distanceFromTop >= headerHeight) {
 			$('#value-nav').addClass('fixed');
 		}

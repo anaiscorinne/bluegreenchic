@@ -1,3 +1,4 @@
+
 <div class="container text-in-parallax">
   <div class="section ">
     <div class="row ">
@@ -14,13 +15,33 @@
                 <%= f.label :instagram %>
                 <%= f.text_field :instagram %>
                 <br>
+                <%= f.label :ig_url %>
+                <%= f.text_field :ig_url %>
+                <br>
+                <%= f.label :ig_url_one %>
+                <%= f.text_field :ig_url_one %>
+                <br>
+                <%= f.label :ig_url_two %>
+                <%= f.text_field :ig_url_two %>
+                <br>
+                <%= f.label :ig_url_three %>
+                <%= f.text_field :ig_url_three %>
+                <br>
+                <%= f.label :ig_url_four %>
+                <%= f.text_field :ig_url_four %>
+                <br>
+                <%= f.label :desc_preview %>
+                <%= f.text_field :desc_preview %>
+                <br>
                 <%= f.label :description %>
                 <%= f.text_area :description %>
                 <br>
-                <%= f.label :description %>
+                <%= f.label :address %>
                 <%= f.text_area :address %>
                 <br>
-                <p>
+                <%= f.label :phone %>
+                <%= f.text_field :phone %>
+                <br>
                 <label>Image</label>
                 <%= image_tag(@store.image_url) if @store.image? %>
                 <%= f.file_field :image %>

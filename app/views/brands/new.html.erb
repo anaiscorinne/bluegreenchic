@@ -19,6 +19,12 @@
                 <%= f.label :instagram %>
                 <%= f.text_field :instagram %>
                 <br>
+                <%= f.label :twitter %>
+                <%= f.text_field :twitter %>
+                <br>
+                <%= f.label :facebook %>
+                <%= f.text_field :facebook %>
+                <br>
                 <label>Image</label>
                 <%= image_tag(@brand.image_url) if @brand.image? %>
                 <%= f.file_field :image %>

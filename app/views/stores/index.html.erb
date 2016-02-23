@@ -1,7 +1,7 @@
 <!-- LINKS TO OTHER PAGES -->
 <!-- THIS WILL BE RENDERED -->
 <div class="container">
-<div class="row">
+<div class="row store-card">
 <!-- <div class="col s12 m6"> -->
 <% @stores.each do |store| %>
   <div class="col s12 l4">
@@ -12,15 +12,14 @@
           </div>
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><%= store.name %><i class="material-icons right">more_vert</i></span>
+          <span class="card-title activator light-blue-text text-darken-1"><%= store.name %><i class="material-icons right grey-text text-lighten-1">more_vert</i></span>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"><%= store.name %><i class="material-icons right">close</i></span>
-          <p><%= store.description %></p>
-          <p><%= store.address %></p>
-          <p><a href="stores/<%-store.id%>/show">Tell me more...</a></p>
+          <span class="card-title light-blue-text text-darken-1"><%= store.name %><i class="material-icons right grey-text text-lighten-1">close</i></span>
+          <p class="store-card-body"><%= store.desc_preview %></p>
+          <a href="stores/<%=store.id%>" class="store-card-body">Tell me more...</a></p>
           <% if current_user && @user.role == "admin" %>
-            <a href="/stores/<%=store.id%>/edit">Edit Store</a>
+            <a href="/stores/<%=store.id%>/edit" class="store-card-body">Edit Store</a>
           <% end %>
         </div>
       </div>

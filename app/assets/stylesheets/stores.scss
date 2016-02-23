@@ -2,7 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.store-card {
+	margin-top: 25px;
+}
+
 .store-image-holder {
 	height: 200px;
 	width: auto;
+}
+
+.card-title {
+	font-family: 'Lora', serif;
+}
+
+.store-card-body {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.instagram-modal-text {
+	font-family: 'Lora', serif;
+	font-size: 34px;
+	color: black;
+}
+
+.the-brands-title {
+	font-family: 'Lora', serif;
+	font-size: 28px;
+}
+
+.store-body {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
 }

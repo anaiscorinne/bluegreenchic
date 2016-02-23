@@ -1,12 +1,46 @@
 <div class="container text-in-parallax">
-  <div class="section ">
-    <div class="row ">
-      <div class="col s12 m12">
-      	<h5 class="center"><a href="<%= store.name %>"></a> <%= store.name %></h5>
-      	<p><%= store.description %></p>
-      	<p><%= store.address %></p>
-      	<p><%= store.instagram %></p>
+  <div class="row">
+   <div class="col s12 m4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m4">
+      <%= image_tag @store.image.url, :class => "responsive-img"%>
+      <h5 class="the-brands-title left-align grey-text text-lighten-1"><i class="small material-icons">loyalty</i> The Brands </h5>
+      <hr>
+    </div>
+        
+    <div class="col s12 m8">
+      <a class="modal-trigger instagram-modal-text" href="#igmodal"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i> <%= @store.name %></a>
+      <p class="store-body"><a target="_blank" href="<%= @store.website %>"><%= @store.website %></a></p>
+      <p class="store-body"><%= @store.phone %> | <%= @store.address %></p>
+      <p class="store-body"><%= @store.description %></p>
+
+      <p>OR GOOGLR MAPS GOES HERE</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m12">
+      MAP GOES HERE - GoogleMaps API
+    </div>
+  </div>
+        
+
+        <!-- Modal Structure -->
+  <div id="igmodal" class="modal bottom-sheet">
+    <div class="modal-content">
+      <a href="#!" class="modal-action modal-close"><i class="small mdi mdi-chevron-double-down"></i></a>
+      <div class="instagram-feed center-align">
+        <iframe src="<%= @store.ig_url_one %>" width="250" height="250" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+        <iframe src="<%= @store.ig_url_two %>" width="250" height="250" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+        <iframe src="<%= @store.ig_url_three %>" width="250" height="250" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+        <iframe src="<%= @store.ig_url_four %>" width="250" height="250" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
       </div>
+    </div>
+    <div class="modal-footer">
+      <h5 class="center-align"><a target="_blank" href="<%= @store.ig_url %>">I want more..</a></h5>
     </div>
   </div>
 </div>
+    
+
