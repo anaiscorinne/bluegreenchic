@@ -7,7 +7,7 @@
         <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
-          <li><a href="#" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
+          <li><a href="/blogposts" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
           <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
           <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
           <% if user_signed_in? %>
@@ -20,7 +20,7 @@
     </nav>
   </div>
    <div class="parallax hp-motto-image">
-    <img src="http://www.nicepcwallpapers.com/wp-content/uploads/2015/07/nature-beautiful-girl-vintage-wallpaper-hd.jpg">
+      <%= image_tag 'main-nature.jpg' %>
     <p class="hp-motto grey-text text-lighten-4">ethical fashion, sustainable style</p>
   </div>
 </div>
@@ -35,7 +35,7 @@
     <div class="row ">
       <div class="col s12 m4">
         <div class="icon-block">
-          <a href="#">
+          <a href="/blogposts">
             <h2 class="center grey-text text-lighten-1"><i class="medium material-icons">flash_on</i></h2>
             <h5 class="center hp-h5-title">The Blog</h5>
           </a>
@@ -45,7 +45,7 @@
 
       <div class="col s12 m4">
         <div class="icon-block">
-          <a href="#">
+          <a href="/brands">
             <h2 class="center grey-text text-lighten-1"><i class="medium material-icons">loyalty</i></h2>
             <h5 class="center hp-h5-title">The Brands</h5>
           </a>
@@ -55,7 +55,7 @@
 
       <div class="col s12 m4">
         <div class="icon-block">
-          <a href="#">
+          <a href="/stores">
             <h2 class="center grey-text text-lighten-1"><i class="medium material-icons">store</i></h2>
             <h5 class="center hp-h5-title">Shop Local</a></h5>
           </a>
@@ -67,7 +67,9 @@
 </div>
 
 <div class="parallax-container">
-  <div class="parallax"><img src="http://s3.favim.com/orig/45/beautiful-fashion-girl-hair-nature-Favim.com-407588.jpg"></div>
+  <div class="parallax">
+    <%= image_tag 'nature.JPG' %>
+  </div>
 </div>
   
 <div class="container text-in-parallax">
@@ -76,7 +78,7 @@
     <div class="row">
       <div class="col s12 center">
         <h3><i class="medium grey-text text-lighten-1 mdi mdi-leaf"></i></h3>
-        <h5 class="hp-h5-title"><a href="#">Get To Know Us</a></h5>
+        <h5 class="hp-h5-title light-blue-text text-darken-1">Get To Know Us</h5>
         <p class="left-align hp-main-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
 
         <p class="left-align hp-main-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
@@ -85,5 +87,7 @@
   </div>
 </div>
 <div class="parallax-container">
-  <div class="parallax"><img src="http://40.media.tumblr.com/dd8df5e0d1a50de7aa5e20594cdf0604/tumblr_mvonyq7lgP1slvo0po1_500.jpg"></div>
+  <div class="parallax"><
+    <%= image_tag 'ocean.jpg' %>
+  </div>
 </div>
