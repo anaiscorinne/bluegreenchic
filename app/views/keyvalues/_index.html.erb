@@ -1,9 +1,13 @@
 
 <ul class="keyvalue-list">
 	<% @keyvalues.each do |value| %>
+      <li class="keyvalue-list-li">
+      <form action="">
+      <input type="checkbox" id="<%= value.id %>" data-value-id="<%= value.id %>" class="value-checkbox" />
+        <label for="<%= value.id %>"></label></form>
 		<a class="modal-trigger-key" href="#value<%= value.id %>">
-			<li class="keyvalue-list-li">
         <i class="<%= value.icon %> small icon-<%= value.id %>"></i>
+      
         <p class="keyvalue-names"><%= value.name %></p>
 				<% if current_user && @user.role == "admin" %>
             <a href="/keyvalues/<%=value.id%>/edit" class="store-card-body-key">Edit</a>

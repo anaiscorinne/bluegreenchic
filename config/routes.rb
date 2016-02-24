@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   #api
    scope "/api" do
-      # resources :brands, controller: :brands_api, only: [:index, :show] 
+      resources :keybrands, controller: :keybrand_api, only: [:index, :show] 
       resources :keyvalues, controller: :keyvalues_api, only: [:index, :show]
       end
   end

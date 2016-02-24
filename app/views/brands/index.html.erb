@@ -15,9 +15,10 @@
 <% @brands.each do |brand| %>
 
 <!-- THIS IS FOR EVEN ID -->
-  <div class="text-in-parallax">
-    <div class="section ">
-      <div class="row" id="<%= brand.name %>">
+  <div class="text-in-parallax" id="<%= brand.name%>">
+    <div class="section brand-index">
+      <div class="row js-brand-class"  data-id="#<%= brand.id%>" style="display: block;">
+      
         <% if brand.id.even? %>
           <div class="col s12 m6">
             <%= image_tag brand.image.url, :class => "responsive-img right-align brand-image-left" %>
