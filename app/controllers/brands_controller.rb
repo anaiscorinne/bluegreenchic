@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update, :show, :add_keyvalues]
+	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update, :show]
 
 	# @brand.attributes = {'keyvalue_ids' => []}.merge(params[:brand] || {})
 

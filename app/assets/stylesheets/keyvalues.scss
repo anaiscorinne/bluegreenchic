@@ -12,7 +12,7 @@
 }
 
 .keyvalue-list ul {
-	margin: 0;
+	margin: 20px 0 0 0;
 }
 
 .keyvalue-list-li {
@@ -48,11 +48,11 @@
 	font-size: 40px;
 }
 
-.store-card-body {
+.store-card-body-key {
 	display: none;
 }
 
-.keyvalue-list-li:hover .store-card-body {
+.keyvalue-list-li:hover .store-card-body-key {
 	display: block;
 }
 

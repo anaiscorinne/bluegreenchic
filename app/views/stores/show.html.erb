@@ -25,20 +25,20 @@
 
 <div class="container text-in-parallax">
   <div class="row">
-   <div class="col s12 m4">
+    <div class="col s12 m4">
     </div>
   </div>
   <div class="row">
     <div class="col s12 m4">
       <%= image_tag @store.image.url, :class => "responsive-img"%>
       <h5 class="the-brands-title left-align grey-text text-lighten-1"><i class="small material-icons">loyalty</i> The Brands </h5>
-      <hr>
-      <ul>
-         <% @store.brands.each do |brand| %>
-          <li class=""><a href="/brands/#<%= brand.name%>"><%= brand.name %></a> </li>
-          </li>
-        <% end %>
-      </ul>
+        <hr>
+        <ul>
+          <% @store.brands.each do |brand| %>
+            <li class=""><a href="/brands/#<%= brand.name%>"><%= brand.name %></a>
+            </li>
+          <% end %>
+        </ul>
     </div>
         
     <div class="col s12 m8">
