@@ -8,6 +8,22 @@ Rails.application.routes.draw do
   resources :stores
   resources :brands
   resources :keyvalues
+
+  #api
+   scope "/api" do
+      # resources :brands, controller: :brands_api, only: [:index, :show] 
+      resources :keyvalues, controller: :keyvalues_api, only: [:index, :show]
+      end
+  end
+
+
+
+# scope "/api" do
+#     resources :sandwiches do
+#       resources :ingredients
+#     end
+#     post "/sandwiches/:id/ingredients/add" => "sandwiches#add_ingredient"
+#   end
   
   # resources :brands do
   #   resources :keyvalues, only: [:create]
@@ -66,4 +82,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
