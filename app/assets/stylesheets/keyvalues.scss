@@ -48,7 +48,12 @@
 	font-size: 40px;
 }
 
+.store-card-body {
+	display: none;
+}
 
-
+.keyvalue-list-li:hover .store-card-body {
+	display: block;
+}
 
 

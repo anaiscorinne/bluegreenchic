@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'mixitup_rails'
+
 gem 'materialize-sass'
 
 gem 'animate-rails'
