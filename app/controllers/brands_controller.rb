@@ -3,11 +3,33 @@ class BrandsController < ApplicationController
 
 	# @brand.attributes = {'keyvalue_ids' => []}.merge(params[:brand] || {})
 
+	# def index
+	# 	# @brands = Brand.all 
+	# end
+
 	def index
-		@brands = Brand.all 
 		@user = current_user
 		@keyvalues = Keyvalue.all 
-	end
+		@brands = Brand.all
+    # @filterrific = initialize_filterrific(Brand, params[:filterrific])
+    # @filterrific.select_options = {
+    #   sorted_by: Brand.options_for_sorted_by,
+    #   with_keyvalues: Brand.options_for_select
+    # }
+    # @brands = Brand.filterrific_find(@filterrific).with_keyvalues
+
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
+  end
+
+  # def reset_filterrific
+  #   # Clear session persistence
+  #   session[:filterrific_brands] = nil
+  #   # Redirect back to the index action for default filter settings.
+  #   redirect_to action: :index
+  # end
 
 	def new
 		@brand = Brand.new

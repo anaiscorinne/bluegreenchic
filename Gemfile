@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'filterrific'
+
 gem 'mixitup_rails'
 
 gem 'materialize-sass'

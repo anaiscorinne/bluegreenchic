@@ -1,23 +1,6 @@
 <div class="parallax-container main-header">
-  <div class="navbar-fixed main-nav">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
-          <li><a href="/blogposts" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
-          <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
-          <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
-          <% if user_signed_in? %>
-            <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
-          <% else %>
-            <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
-  </div>
-   <div class="parallax hp-motto-image">
+  <%= render "layouts/nav" %>
+  <div class="parallax hp-motto-image">
       <%= image_tag 'pink-reformation.jpg' %>
       <p class="store-index-motto"><span class="deep-orange-text text-darken-4">ethical fashion,<br>sustainable style</span></p>
     </div>
@@ -55,7 +38,7 @@
           </ul>
           <a href="stores/<%=store.id%>" class="store-card-show-me">Show me more...</a>
           <% if current_user && @user.role == "admin" %>
-            <a href="/stores/<%=store.id%>/edit" class="store-card-show-me-edit">Edit Store</a>
+            <a href="/stores/<%=store.id%>/edit" class="store-card-show-me-edit">Edit Store</a><a href="/stores/new" class="store-card-show-me-new">Add New</a>
           <% end %>
         </div>
       </div>

@@ -1,22 +1,5 @@
 <div class="parallax-container main-header">
-  <div class="navbar-fixed main-nav">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
-          <li><a href="/blogposts" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
-          <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
-          <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
-          <% if user_signed_in? %>
-            <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
-          <% else %>
-            <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
-  </div>
+  <%= render "layouts/nav" %>
    <div class="parallax hp-motto-image">
     <%= image_tag 'yellow-reformation.jpg' %>
     <p class="sign-in-motto teal-text text-lighten-1">ethical fashion, <br>sustainable style</p>
@@ -39,7 +22,7 @@
   
       <div class="field">
         <%= f.label :first_name %><br />
-        <%= f.text_field :first_name, autofocus: true %>
+        <%= f.text_field :first_name %>
       </div>
     <!-- <div class="col s12 m6"> -->
       <div class="field">
