@@ -48,7 +48,7 @@ class StoresController < ApplicationController
 	def store_params
 		params.require(:store).permit(:name, :website, :instagram, 
 			:description, :address, :image, :ig_url, :ig_url_one, 
-			:ig_url_two, :ig_url_three, :ig_url_four, :desc_preview, :phone)
+			:ig_url_two, :ig_url_three, :ig_url_four, :desc_preview, :phone, brand_ids:[])
 	end
 end
 

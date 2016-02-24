@@ -59,6 +59,12 @@
                 <%= f.label :phone %>
                 <%= f.text_field :phone %>
                 <br>
+                <% Brand.all.each do |b| %>
+                  <%= check_box_tag "store[brand_ids][]", b.id, @store.brand_ids.include?(b.id), :id => "brand_#{b.id}" %>
+                  <%= label_tag :brand_ids, b.name, :for => "brand_#{b.id}" %>
+                  <br />
+                <% end %>              
+                <br>
                 <label>Image</label>
                 <%= image_tag(@store.image_url) if @store.image? %>
                 <%= f.file_field :image %>

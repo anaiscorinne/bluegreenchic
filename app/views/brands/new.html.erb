@@ -46,6 +46,11 @@
                 <%= f.file_field :image %>
                 <%= f.hidden_field :image_cache %>
                 <br>
+                <% Keyvalue.all.each do |value| %>
+                  <%= check_box_tag "brand[keyvalue_ids][]", value.id, @brand.keyvalue_ids.include?(value.id), :id => "value_#{value.id}" %>
+                  <%= label_tag :keyvalue_ids, value.name, :for => "value_#{value.id}" %>
+                  <br />
+                <% end %>                
                 <%= f.submit "Save" %>
                 <br>
                 <%= link_to("Cancel", brands_path) %>
@@ -58,3 +63,28 @@
 
 
 <!-- CONTACT US -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

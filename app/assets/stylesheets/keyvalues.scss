@@ -11,8 +11,18 @@
 	list-style: none;
 }
 
+.keyvalue-list ul {
+	margin: 0;
+}
+
 .keyvalue-list-li {
 	padding: 0px 40px;
+	// height: 40px;
+}
+
+.key-value-when-fixed {
+	height: 100px;
+	margin: 0;
 }
 
 .keyvalue-names {

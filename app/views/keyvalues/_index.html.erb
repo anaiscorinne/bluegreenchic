@@ -3,11 +3,11 @@
 	<% @keyvalues.each do |value| %>
 		<a class="modal-trigger-key" href="#value<%= value.id %>">
 			<li class="keyvalue-list-li">
-				<i class="<%= value.icon %> small icon-<%= value.id %>"></i>
-				<p class="keyvalue-names"><%= value.name %></p>
 				<% if current_user && @user.role == "admin" %>
             <a href="/keyvalues/<%=value.id%>/edit" class="store-card-body">Edit</a>
          <% end %>
+        <i class="<%= value.icon %> small icon-<%= value.id %>"></i>
+        <p class="keyvalue-names"><%= value.name %></p>
 			</li>
 		</a>
 

@@ -23,8 +23,8 @@
   </div>
 </div>
 
-<div class="text-in-parallax value-nav-class">
-  <div class="" id="value-nav">
+<div class="value-nav-class">
+  <div class="key-value-when-fixed " id="value-nav">
       <%= render "keyvalues/index" %>
   </div>
 </div>
@@ -32,10 +32,10 @@
 <% @brands.each do |brand| %>
 
 <!-- THIS IS FOR EVEN ID -->
-  <% if brand.id.even? %>
-    <div class="text-in-parallax">
-      <div class="section ">
-        <div class="row ">
+  <div class="text-in-parallax">
+    <div class="section ">
+      <div class="row" id="<%= brand.name %>">
+        <% if brand.id.even? %>
           <div class="col s12 m6">
             <%= image_tag brand.image.url, :class => "responsive-img right-align brand-image-left" %>
           </div>
@@ -48,7 +48,15 @@
               </span>
                 <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
                 <br><br>
-                <p>Display VALUE ICONS here</p>
+               
+                  <ul>
+                  <% brand.keyvalues.each do |key| %>
+                    <li class="keyvalue-brand-list-li">
+                    <i class="<%= key.icon %> small icon-<%= key.id %>"></i>
+                    </li>
+                  <% end %>
+                  </ul>
+               
               <p class="brand-index-page"><%= brand.description %></p>
               <a href="#"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
               <% if current_user && @user.role == "admin" %>
@@ -57,24 +65,33 @@
             </div>
           </div>
         </div>
-      </div>
+     <!--  </div>
     </div>
-  </div>
+  </div> -->
 
 <!-- THIS IS FOR ODD -->
   <% elsif brand.id.odd? %>
-    <div class="text-in-parallax">
+   <!--  <div class="text-in-parallax">
       <div class="section ">
-        <div class="row ">
+        <div class="row"> -->
           <div class="col s12 m6">
             <div class="brand-body-left">
               <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
+             
+              
               <span class="brand-social-media right">
                 <a target="_blank" href="<%= brand.facebook %>"><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
                 <a target="_blank" href="<%= brand.twitter %>"><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
                 <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
               </span>
               <br>
+                <ul>
+                  <% brand.keyvalues.each do |key| %>
+                    <li class="keyvalue-brand-list-li">
+                    <i class="<%= key.icon %> small icon-<%= key.id %>"></i>
+                    </li>
+                  <% end %>
+                  </ul>
               <p class="brand-index-page"><%= brand.description %></p>
               <a href="#"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
               <% if current_user && @user.role == "admin" %>
@@ -85,8 +102,8 @@
             <div class="col s12 m6">
             <%= image_tag brand.image.url, :class => "responsive-img left-align brand-image-right" %>
             </div>
+          <% end %>
         </div>
       </div>
     </div>
-  <% end %>
 <% end %>

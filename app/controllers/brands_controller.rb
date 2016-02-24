@@ -1,5 +1,7 @@
 class BrandsController < ApplicationController
-	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update, :show]
+	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update, :show, :add_keyvalues]
+
+	# @brand.attributes = {'keyvalue_ids' => []}.merge(params[:brand] || {})
 
 	def index
 		@brands = Brand.all 
@@ -27,8 +29,9 @@ class BrandsController < ApplicationController
 
 	def update
 		@brand = Brand.find_by(id: params[:id])
+		
 			if @brand.update_attributes(brand_params)
-				@brand.save
+					@brand.save
 				redirect_to brands_path
 			else
 				render :edit
@@ -41,11 +44,15 @@ class BrandsController < ApplicationController
 		redirect_to brands_path
 	end
 
+
 	private
 	def brand_params
 		params.require(:brand).permit(:name, :description, 
-			:website, :instagram, :image, :facebook, :twitter)
+			:website, :instagram, :image, :facebook, :twitter, keyvalue_ids:[])
 	end
+	# def keyvalue_params
+	# 	params.require(:keyvalue).permit(:name,)
+	# end
 end
 
 
