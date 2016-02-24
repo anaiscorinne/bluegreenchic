@@ -1,10 +1,10 @@
 
 <ul class="keyvalue-list">
-	<% @keyvalues.each do |value| %>
-      <li class="keyvalue-list-li">
       <form action="">
+  <% @keyvalues.each do |value| %>
+      <li class="keyvalue-list-li">
       <input type="checkbox" id="<%= value.id %>" data-value-id="<%= value.id %>" class="value-checkbox" />
-        <label for="<%= value.id %>"></label></form>
+        <label for="<%= value.id %>"></label style="height: 10px !important; width: 10px !important;"><br></form>
 		<a class="modal-trigger-key" href="#value<%= value.id %>">
         <i class="<%= value.icon %> small icon-<%= value.id %>"></i>
       

@@ -12,7 +12,7 @@
 }
 
 .keyvalue-list ul {
-	margin: 20px 0 0 0;
+	margin: 10px 0 0 0 !important;
 }
 
 .keyvalue-list-li {
@@ -54,6 +54,13 @@
 
 .keyvalue-list-li:hover .store-card-body-key {
 	display: block;
+}
+
+.value-checkbox input {
+	height: 10px !important;
+	width: 10px !important;
+	margin: 0 !important;
+	
 }
 
 
