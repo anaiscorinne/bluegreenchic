@@ -1,35 +1,11 @@
 class BrandsController < ApplicationController
 	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update, :show]
 
-	# @brand.attributes = {'keyvalue_ids' => []}.merge(params[:brand] || {})
-
-	# def index
-	# 	# @brands = Brand.all 
-	# end
-
 	def index
 		@user = current_user
 		@keyvalues = Keyvalue.all 
 		@brands = Brand.all
-    # @filterrific = initialize_filterrific(Brand, params[:filterrific])
-    # @filterrific.select_options = {
-    #   sorted_by: Brand.options_for_sorted_by,
-    #   with_keyvalues: Brand.options_for_select
-    # }
-    # @brands = Brand.filterrific_find(@filterrific).with_keyvalues
-
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
   end
-
-  # def reset_filterrific
-  #   # Clear session persistence
-  #   session[:filterrific_brands] = nil
-  #   # Redirect back to the index action for default filter settings.
-  #   redirect_to action: :index
-  # end
 
 	def new
 		@brand = Brand.new
@@ -72,9 +48,7 @@ class BrandsController < ApplicationController
 		params.require(:brand).permit(:name, :description, 
 			:website, :instagram, :image, :facebook, :twitter, keyvalue_ids:[])
 	end
-	# def keyvalue_params
-	# 	params.require(:keyvalue).permit(:name,)
-	# end
+	
 end
 
 

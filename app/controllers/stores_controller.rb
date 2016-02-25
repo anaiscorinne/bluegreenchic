@@ -46,6 +46,7 @@ class StoresController < ApplicationController
 	end
 
 	def by_brand
+		@user = current_user
 		stores = Store.all
 		brand_name = params[:brand]
 		stores_included = []

@@ -1,5 +1,5 @@
 class KeyvaluesController < ApplicationController
-	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update]
+	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update, :show]
 
 	def index
 		@keyvalues = Keyvalue.all 
