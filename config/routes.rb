@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get "/" => 'sites#home'
+  get "/stores/brands/:brand" => 'stores#by_brand'
   # get "/brands/:id/add_values" => 'brands#add_values'
   # post "/brands/:id/add_values" => 'brands#add_keyvalues'
   

@@ -42,7 +42,7 @@
                   </ul>
                
               <p class="brand-index-page"><%= brand.description %></p>
-              <a href="#"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
+              <a href="/stores/brands/<%=brand.name%>">store</i><br>Shop <%= brand.name %> near you...</a><br>
               <% if current_user && @user.role == "admin" %>
                 <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
               <% end %>
@@ -73,7 +73,7 @@
                   <% end %>
                   </ul>
               <p class="brand-index-page"><%= brand.description %></p>
-              <a href="#"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
+              <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
               <% if current_user && @user.role == "admin" %>
                 <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
               <% end %>

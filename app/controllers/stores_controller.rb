@@ -8,6 +8,7 @@ class StoresController < ApplicationController
 
 	def show
 		@store = Store.find_by(id: params[:id])
+		# render :show
 	end
 
 	def new
@@ -42,6 +43,21 @@ class StoresController < ApplicationController
 		@store = Store.find(params[:id])
 		@store.destroy
 		redirect_to stores_path
+	end
+
+	def by_brand
+		stores = Store.all
+		brand_name = params[:brand]
+		stores_included = []
+		stores.each do |store|
+			store.brands.each do |brand|
+				if brand.name.include?(brand_name)
+				stores_included.push(store)
+			end
+		end
+	end
+	@stores = stores_included
+	render :by_brand
 	end
 
 	private
