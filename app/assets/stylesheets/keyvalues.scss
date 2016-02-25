@@ -7,28 +7,45 @@
 // }
 
 .keyvalue-list li {
-	display: inline-block;
+	display: inline-flex;
 	list-style: none;
 }
 
 .keyvalue-list ul {
-	margin: 10px 0 0 0 !important;
+	// margin: 10px 0 0 0 !important;
 }
 
-.keyvalue-list-li {
-	padding: 0px 40px;
-	// height: 40px;
-}
 
 .key-value-when-fixed {
-	height: 100px;
+	height: 120px;
 	margin: 0;
+}
+
+.key-value-when-fixed.fixed {
+	height: 120px;
+	margin: 0;
+}
+
+.checkbox-for-values {
+	height: 5px !important;
+	width: 5px !important;
+	text-align: center;
+}
+
+[type="checkbox"] + label {
+	padding-left: 19px !important;
+	height: 18px !important;
 }
 
 .keyvalue-names {
 	font-size: 16px;
 	font-family: 'Open Sans Condensed', sans-serif;
 	color: #757575 !important;
+	margin-top: 0;
+}
+
+.value-block-each {
+	margin: -3px 40px;
 }
 
 .modal-fixed-footer, .lean-overlay {
@@ -59,8 +76,10 @@
 .value-checkbox input {
 	height: 10px !important;
 	width: 10px !important;
-	margin: 0 !important;
+	margin: 0 0 0 5px !important;
+	display: inline;
 	
 }
+
 
 
