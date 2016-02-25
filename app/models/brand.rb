@@ -1,7 +1,7 @@
 class Brand < ActiveRecord::Base
-	has_many :brandstores
+	has_many :brandstores, dependent: :destroy
 	has_many :stores, through: :brandstores
-	has_many :keybrands
+	has_many :keybrands, dependent: :destroy
 	has_many :keyvalues, through: :keybrands
   
   accepts_nested_attributes_for :brandstores

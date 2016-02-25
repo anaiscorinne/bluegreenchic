@@ -4,6 +4,7 @@
 <div class="row ">
   <div class="col s12 m12">
         <br><h5 class="center hp-h5-title">Add a new Store</h5><hr><br>
+        <%= @store.errors.full_messages %>
               <%= form_for [@store], html: { multipart: true } do |f| %>
 
                 <%= f.label :name %>

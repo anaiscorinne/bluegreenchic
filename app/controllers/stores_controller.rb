@@ -2,7 +2,7 @@ class StoresController < ApplicationController
 	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update]
 
 	def index
-		@stores = Store.all 
+		@stores = Store.all
 		@user = current_user
 	end
 
@@ -65,7 +65,8 @@ class StoresController < ApplicationController
 	def store_params
 		params.require(:store).permit(:name, :website, :instagram, 
 			:description, :address, :ig_url, :ig_url_one, 
-			:ig_url_two, :ig_url_three, :ig_url_four, :desc_preview, :phone, {images:[]}, {brand_ids:[]})
+			:ig_url_two, :ig_url_three, :ig_url_four, :desc_preview, 
+			:phone, {images:[]}, {brand_ids:[]})
 	end
 end
 
