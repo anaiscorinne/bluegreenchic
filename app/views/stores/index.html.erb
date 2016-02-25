@@ -9,39 +9,27 @@
 <!-- THIS WILL BE RENDERED -->
 <div class="container">
   <div class="row store-card">
-<!-- <div class="col s12 m6"> -->
-  <% @stores.each do |store| %>
-    <div class="col s12 l4">
-      <div class="card small my-store-card" style="margin: 0 15px;">
-
-
-        <div class="card-image waves-effect waves-block waves-light">
-          <div class="store-image-holder valign-wrapper">
-            <%= image_tag store.images[0].url, :class => "activator"%>
-          </div>
-        </div>
-
-        <div class="card-content">
-          <a href="stores/<%=store.id%>"><span class="card-title light-blue-text text-darken-1"><%= store.name %><i class="material-icons right grey-text text-lighten-1">more_vert</i></span></a>
-          <p class="store-card-body"><%= store.desc_preview %></p>
+    <% @stores.each do |store| %>
+      <div class="col s12 l4">
+        <div class="card small my-store-card" style="margin: 0 15px;">
+          <a href="/stores/<%=store.id%>" >
+            <div class="card-image waves-effect waves-block waves-light">
+              <div class="store-image-holder valign-wrapper">
+                <%= image_tag store.images[0].url, :class => "activator"%>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="card-title light-blue-text text-darken-1"><%= store.name %></span>
+              <p class="store-card-body grey-text text-grey-darken-2"><%= store.desc_preview %></p>
+            </div>
+          </a>
           <% if current_user && @user.role == "admin" %>
-            <a href="/stores/<%=store.id%>/edit" class="store-card-show-me-edit">| Edit Store</a><a href="/stores/new" class="store-card-show-me-new">Add New</a>
+            <div class="card-action">
+              <a href="/stores/<%=store.id%>/edit" class="store-card-show-me-edit">| Edit Store</a><a href="/stores/new" class="store-card-show-me-new">Add New</a>
+            </div>
           <% end %>
         </div>
-
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-1"><i class="small material-icons">loyalty</i> The Brands <i class="material-icons right grey-text text-lighten-1">close</i></span>
-          <hr>
-          <ul>
-            <% store.brands.each do |brand| %>
-              <li class="brand-in-modal store-card-body"><a href="/brands/#<%= brand.name%>"><%= brand.name %></a>
-              </li>
-            <% end %>
-          </ul>
-        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>

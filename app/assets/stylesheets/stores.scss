@@ -59,16 +59,16 @@
 
 .store-card-show-me-edit {
 	position: absolute;
-	bottom: 30%;
-	right: 52%;
+	bottom: -3%;
+	right: -6%;
 	font-family: 'Poiret One';
 	font-size: 14px;
 }
 
 .store-card-show-me-new {
 	position: absolute;
-	bottom: 30%;
-	right: 76%;
+	bottom: -3%;
+	right: 22%;
 	font-family: 'Poiret One';
 	font-size: 14px;
 }
@@ -112,4 +112,11 @@
 
 .form-brand-list-labels {
 	margin-left: 4px;
+}
+
+.card .card-content {
+	padding: 5px 10px !important;
+}
+.card .card-action {
+	padding: 10px !important;
 }
