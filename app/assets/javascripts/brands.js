@@ -7,9 +7,11 @@ $(window).bind('scroll', function() {
 	var headerHeight = $('.main-header').height() - $('.main-nav').height();
 		if (distanceFromTop >= headerHeight) {
 			$('#value-nav').addClass('fixed');
+			$('.nav-wrapper').addClass('stick-nav-adhere');
 		}
 		else {
 			$('#value-nav').removeClass('fixed');
+			$('.nav-wrapper').removeClass('stick-nav-adhere');
 		}
 	});	
 	$('.value-checkbox').on('click', filterBrands);
