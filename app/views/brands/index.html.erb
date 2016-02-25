@@ -1,23 +1,23 @@
 <div class="parallax-container main-header">
   <div class="navbar-fixed main-nav">
-  <nav>
-    <div class="nav-wrapper stick-nav-adhere">
-      <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
-        <li><a href="/blogposts" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
-        <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
-        <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
-        <% if user_signed_in? %>
-          <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
-        <% else %>
-          <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-</div>
-   <div class="parallax hp-motto-image valign-wrapper">
+    <nav>
+      <div class="nav-wrapper stick-nav-adhere">
+        <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
+          <li><a href="/blogposts" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
+          <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
+          <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
+          <% if user_signed_in? %>
+            <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
+          <% else %>
+            <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="parallax hp-motto-image valign-wrapper">
     <%= image_tag 'brand-page.png' %>
     <p class="brand-motto grey-text text-lighten-4">ethical fashion, sustainable style</p>
   </div>
@@ -29,14 +29,15 @@
   </div>
 </div>
 
-<% @brands.each do |brand| %>
+<% @brands.each_with_index do |brand, index| %>
 
 <!-- THIS IS FOR EVEN ID -->
+
   <div class="text-in-parallax" id="<%= brand.name%>">
     <div class="section brand-index">
       <div class="row js-brand-class"  data-id="#<%= brand.id%>" style="display: block;">
-      
-        <% if brand.id.even? %>
+        <% if index.even? %>
+<div class="right">
           <div class="col s12 m6">
             <%= image_tag brand.image.url, :class => "responsive-img right-align brand-image-left" %>
           </div>
@@ -47,60 +48,56 @@
                 <a target="_blank" href="<%= brand.twitter %>"><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
                 <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
               </span>
-                <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
-                <br><br>
-               
-                  <ul>
-                  <% brand.keyvalues.each do |key| %>
-                    <li class="keyvalue-brand-list-li">
+              <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
+              <br>
+              <ul>
+                <% brand.keyvalues.each do |key| %>
+                  <li class="keyvalue-brand-list-li">
                     <i class="<%= key.icon %> small icon-<%= key.id %>"></i>
-                    </li>
-                  <% end %>
-                  </ul>
-               
+                  </li>
+                <% end %>
+              </ul>
               <p class="brand-index-page"><%= brand.description %></p>
               <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
-              <% if current_user && @user.role == "admin" %>
-                <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
-              <% end %>
+                <% if current_user && @user.role == "admin" %>
+                  <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
+                <% end %>
+              </div>
             </div>
-          </div>
-        </div>
-     
-
+</div>
 <!-- THIS IS FOR ODD -->
-  <% elsif brand.id.odd? %>
-   
+
+        <% elsif index.odd? %>
+<div class="left">
           <div class="col s12 m6">
             <div class="brand-body-left">
               <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
-             
-              
               <span class="brand-social-media right">
                 <a target="_blank" href="<%= brand.facebook %>"><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
                 <a target="_blank" href="<%= brand.twitter %>"><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
                 <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
               </span>
               <br>
-                <ul>
-                  <% brand.keyvalues.each do |key| %>
-                    <li class="keyvalue-brand-list-li">
+              <ul>
+                <% brand.keyvalues.each do |key| %>
+                  <li class="keyvalue-brand-list-li">
                     <i class="<%= key.icon %> small icon-<%= key.id %>"></i>
-                    </li>
-                  <% end %>
-                  </ul>
+                  </li>
+                <% end %>
+              </ul>
               <p class="brand-index-page"><%= brand.description %></p>
               <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
-              <% if current_user && @user.role == "admin" %>
-                <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
-              <% end %>
-              </div>
+                <% if current_user && @user.role == "admin" %>
+                  <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
+                <% end %>
             </div>
-            <div class="col s12 m6">
+          </div>
+          <div class="col s12 m6">
             <%= image_tag brand.image.url, :class => "responsive-img left-align brand-image-right" %>
-            </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+</div>
       </div>
     </div>
+  </div>
 <% end %>

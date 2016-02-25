@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'geokit-rails'
+
 gem 'mini_magick'
 
 gem 'filterrific'
