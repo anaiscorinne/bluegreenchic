@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'mini_magick'
+
 gem 'filterrific'
 
 gem 'mixitup_rails'
@@ -8,7 +10,7 @@ gem 'materialize-sass'
 
 gem 'animate-rails'
 
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 # gem 'bootstrap-sass', '~> 3.3.6' 
 

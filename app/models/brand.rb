@@ -16,4 +16,5 @@ class Brand < ActiveRecord::Base
 
   mount_uploader :image, BrandImageUploader
  
+ 
 end

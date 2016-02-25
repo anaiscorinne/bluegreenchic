@@ -6,9 +6,9 @@
 	font-size: 52px;
 	font-style: italic;
 	position: absolute;
-	top: 60%;
+	top: 62%;
 	right: 0%;
-	left: 6%
+	left: 3%
 }
 
 .store-index-motto {
@@ -59,16 +59,16 @@
 
 .store-card-show-me-edit {
 	position: absolute;
-	bottom: 1%;
-	right: 4%;
+	bottom: 30%;
+	right: 52%;
 	font-family: 'Poiret One';
 	font-size: 14px;
 }
 
 .store-card-show-me-new {
 	position: absolute;
-	bottom: 8%;
-	right: 4%;
+	bottom: 30%;
+	right: 76%;
 	font-family: 'Poiret One';
 	font-size: 14px;
 }
@@ -102,4 +102,14 @@
 
 .card .card-image img {
 	height: 100%;
+}
+
+.form-brand-list {
+	display: inline-block; 
+	list-style: none; 
+	margin-left: 10px
+}
+
+.form-brand-list-labels {
+	margin-left: 4px;
 }

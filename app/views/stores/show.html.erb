@@ -1,8 +1,8 @@
 <div class="parallax-container main-header">
   <%= render "layouts/nav" %>
    <div class="parallax hp-motto-image">
-      <%= image_tag 'reform41.jpeg' %>
-    <p class="store-page-motto pink-text text-darken-4"><b>ethical fashion, sustainable style</b></p>
+      <%= image_tag @store.images[1].url %>
+    <p class="store-page-motto grey-text text-lighten-4">ethical fashion, sustainable style</p>
   </div>
 </div>
 
@@ -13,7 +13,7 @@
   </div>
   <div class="row">
     <div class="col s12 m4">
-      <%= image_tag @store.image.url, :class => "responsive-img"%>
+      <%= image_tag @store.images[0].url, :class => "responsive-img"%>
       <h5 class="the-brands-title left-align grey-text text-lighten-1"><i class="small material-icons">loyalty</i> The Brands </h5>
         <hr>
         <ul>

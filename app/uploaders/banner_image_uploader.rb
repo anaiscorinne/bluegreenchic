@@ -1,14 +1,10 @@
 # encoding: utf-8
 
-class StoreUploader < CarrierWave::Uploader::Base
-  
+class BannerImageUploader < CarrierWave::Uploader::Base
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
-
-  version :thumb do
-    process resize_to_fill: [200,200]
-  end
+  # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file

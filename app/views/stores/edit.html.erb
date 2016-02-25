@@ -43,17 +43,23 @@
             <%= f.label :phone %>
             <%= f.text_field :phone %>
             <br>
+            <ul>   
             <% Brand.all.each do |b| %>
-                  <%= check_box_tag "store[brand_ids][]", b.id, @store.brand_ids.include?(b.id), :id => "brand_#{b.id}" %>
-                  <%= label_tag :brand_ids, b.name, :for => "brand_#{b.id}" %>
-                  <br />
+                  <li class="form-brand-list"><%= check_box_tag "store[brand_ids][]", b.id, @store.brand_ids.include?(b.id), :id => "brand_#{b.id}" %>
+                  <%= label_tag :brand_ids, b.name, :for => "brand_#{b.id}" %></li>
                 <% end %> 
-            <br>
-            <label>Image</label>
-            <%= image_tag(@store.image_url) if @store.image? %>
-            <%= f.file_field :image %>
-            <%= f.hidden_field :image_cache %>
-            <br><br><br>
+            </ul>
+            <br><br>
+            <label>Small Image</label><br>
+            <%= image_tag(@store.images[0].thumb.url) if @store.images? %><br>
+            <%= f.file_field :images, multiple: true  %>
+            <%= f.hidden_field :images_cache %>
+            <br><br>
+            <label>Banner Image</label><br>
+            <%= image_tag(@store.images[1].thumb.url) if @store.images? %><br>
+            <%= f.file_field :images, multiple: true %>
+            <%= f.hidden_field :images_cache %>
+            <br><br>
             <%= f.submit "Save Edits", :class => "waves-effect waves-light btn" %>
 			<%= link_to "Delete", @store, :method => "delete", :class => "waves-effect waves-light btn red" %>
             <br>
