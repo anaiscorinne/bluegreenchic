@@ -22,24 +22,25 @@ class StoresController < ApplicationController
 		stores = Store.all
 		brand_name = params[:brand]
 		stores_included = []
-		stores.each do |store|
-			store.brands.each do |brand|
-				if brand.name.include?(brand_name)
-					stores_included.push(store)
+		stores.each do |store| #for all stores, take each store
+			store.brands.each do |brand| # and look through each brand
+				if brand.name.include?(brand_name) #if store brand is same as the params brand
+					stores_included.push(store) #then push the store to array of stores that have them
 				end
 			end
 		end
-# if there is a search param then show only stores within X distance of search
+# if search param show only stores within X dist. of search that inc the brand searched
 		if params[:search]
 			all_stores_within_search = []
-			stores_within_search = Store.within(2, :origin => params[:search])
-			stores_included.each do |inc_store|
-				stores_within_search.each do |store|
-					if store.name.include?(inc_store.name)
-						all_stores_within_search.push(store)
+			stores_within_search = Store.within(2, :origin => params[:search]) #all stores w/in dist
+			stores_included.each do |inc_store| #in array of stores that have brand take each inc_store
+				stores_within_search.each do |store| #for each store within search
+					if store.name.include?(inc_store.name) #if store is also inc_store
+						all_stores_within_search.push(store) #then add store to array of inc store within search
 					end
 				end
 			end
+			# stores equal all w/ brand w/in search and sort by name ASC
 			@stores = all_stores_within_search.sort_by{|s| s.name.downcase}
 # if there is no search and no geolocation the show all stores and sort by name
 		elsif cookies[:lat_lng].nil?
