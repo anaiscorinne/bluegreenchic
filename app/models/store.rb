@@ -24,6 +24,10 @@ class Store < ActiveRecord::Base
   acts_as_mappable
   before_validation :geocode_address, :on => :create
 
+  def by_distance
+   Store.within(5, :origin => @lat_lng).order('distance DESC, nbr_seats ASC')
+  end
+
   private
   def geocode_address
   	p Geokit::Geocoders.ssl_verify_mode

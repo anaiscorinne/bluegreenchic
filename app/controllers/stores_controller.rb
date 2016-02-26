@@ -2,9 +2,17 @@ class StoresController < ApplicationController
 	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update]
 
 	def index
+	  @lat_lng = cookies[:lat_lng].split("|")
 		@stores = Store.all
 		@user = current_user
+
+		if @lat_lng.nil?
+			@stores = Store.all
+		else
+			@stores = Store.within(5, :origin => @lat_lng).order('address DESC')
+		end
 	end
+
 
 	def show
 		@store = Store.find_by(id: params[:id])

@@ -13,20 +13,17 @@ $(document).ready(function(){
 
 // ----------------------------------------------
 
-function getUserLocation () {
-	navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-}
+// function getUserLocation () {
+// 	navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+// }
 
 function successCallback (position) {
 	var lat = position.coords.latitude
 	var lng = position.coords.longitude
-
-	// displayMap(latitude, longitude);
-	// console.log("Lat:", position.coords.latitude);
-	// console.log("Long:", position.coords.longitude);
-	// $(".js-lat-value").text(position.coords.latitude);
-	// $(".js-lng-value").text(position.coords.longitude);
+	var origin = (lat, lng)
+	displayByClosest(origin);
 }
+
 
 function errorCallback (error) {
 	console.log("Getting location failed:", error.message);
@@ -42,4 +39,20 @@ function displayMap(lat, lng) {
         });
 
 }
+
+function getUserLocation() {
+  navigator.geolocation.getCurrentPosition(setGeoCookie);
+}
+
+function setGeoCookie(position) {
+  var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
+  document.cookie = "lat_lng=" + escape(cookie_val);
+}
+
+
+
+
+
+
+
 
