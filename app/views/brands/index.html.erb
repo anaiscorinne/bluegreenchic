@@ -28,7 +28,18 @@
       <%= render "keyvalues/index" %>
   </div>
 </div>
-
+<div class="container">
+    <!-- <div class="col s12 m6"> -->
+      <form>
+        <div class="input-field">
+          <%= form_tag(stores_path, :method => "get") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "search brands by name" %>
+            <%= submit_tag "Search" %>
+          <% end %>
+        </div>
+      </form>
+    <!-- </div> -->
+  </div>
 <% @brands.each_with_index do |brand, index| %>
 
 <!-- THIS IS FOR EVEN ID -->

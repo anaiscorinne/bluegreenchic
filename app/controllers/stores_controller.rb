@@ -7,6 +7,9 @@ class StoresController < ApplicationController
 		if params[:search]
 			@stores = Store.within(2, :origin => params[:search])
 # if there is no search and no geolocation the show all stores and sort by name
+		elsif params[:Search_by_name]
+
+			@stores = Store.search_by_name(params[:search_by_name]).order("name DESC")
 		elsif cookies[:lat_lng].nil?
 			all_stores = Store.all
 			@stores = all_stores.sort_by {|store| store.name.downcase}
@@ -53,18 +56,6 @@ class StoresController < ApplicationController
 		end
 		render 'index'
 	end
-
-# # if there is no geocode available then show all unsorted
-# 		if cookies[:lat_lng].nil?
-# 			@stores = stores_included.all
-# # if not sort in order of closest to furthest
-# 		else
-# 			@lat_lng = cookies[:lat_lng].split("|")
-# 			@stores = stores_included.sort_by{|s| s.distance_to(@lat_lng)}
-# 		end
-# 		render :by_brand
-# 	end
-
 
 	def show
 		@store = Store.find_by(id: params[:id])

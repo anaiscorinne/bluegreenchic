@@ -24,6 +24,11 @@ class Store < ActiveRecord::Base
   acts_as_mappable
   before_validation :geocode_address, :on => :create
 
+  def self.search(search_by_name)
+    where('name LIKE ?', "%{search_by_name}%")
+    where('instagram LIKE ?', "%{search_by_name}%")
+  end
+
   private
   def geocode_address
   	p Geokit::Geocoders.ssl_verify_mode

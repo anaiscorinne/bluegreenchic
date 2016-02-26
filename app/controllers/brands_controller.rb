@@ -4,7 +4,11 @@ class BrandsController < ApplicationController
 	def index
 		@user = current_user
 		@keyvalues = Keyvalue.all 
-		@brands = Brand.all
+		if params[:search]
+			@brands = Brand.where('name iLIKE ?', params[:search]).order("name DESC")
+		else
+			@brands = Brand.all
+		end
   end
 
 	def new

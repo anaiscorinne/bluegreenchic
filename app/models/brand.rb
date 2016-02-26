@@ -15,6 +15,5 @@ class Brand < ActiveRecord::Base
   attr_accessor :image_cache
 
   mount_uploader :image, BrandImageUploader
- 
- 
+
 end
