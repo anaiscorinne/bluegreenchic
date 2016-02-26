@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get "/" => 'sites#home'
   get "/stores/brands/:brand" => 'stores#by_brand'
+  get "/stores/search/:search" => 'stores#search'
   # get "/brands/:id/add_values" => 'brands#add_values'
   # post "/brands/:id/add_values" => 'brands#add_keyvalues'
   

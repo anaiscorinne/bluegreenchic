@@ -10,6 +10,21 @@
 <!-- LINKS TO OTHER PAGES -->
 <!-- THIS WILL BE RENDERED -->
 <div class="container">
+  <div class="row">
+    <div class="col s12 m12">
+      <form>
+        <div class="input-field">
+<%= form_tag(stores_path, :method => "get") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "area" %>
+  <%= submit_tag "Search" %>
+<% end %>
+          <!-- <input id="search-form" type="search" method="get" required>
+          <label for="search-form" text><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i> -->
+        </div>
+      </form>
+    </div>
+  </div>
   <div class="row store-card">
     <% @stores.each do |store| %>
       <div class="col s12 l4">

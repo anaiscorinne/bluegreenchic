@@ -40,10 +40,11 @@ function displayMap(lat, lng) {
 
 }
 
+// gets user location
 function getUserLocation() {
   navigator.geolocation.getCurrentPosition(setGeoCookie);
 }
-
+// sets cookie to send the location to ruby
 function setGeoCookie(position) {
   var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
   document.cookie = "lat_lng=" + escape(cookie_val);
