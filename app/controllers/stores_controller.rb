@@ -49,9 +49,24 @@ class StoresController < ApplicationController
 			end
 			# stores equal all w/ brand w/in search and sort by name ASC
 			@stores = all_stores_within_search.sort_by{|s| s.name.downcase}
-		end
+		
 # if search by name & brands & no geo then show in order by name
-		if params[:search_by_name] && cookies[:lat_lng].nil?
+		elsif params[:search_by_name] && cookies[:lat_lng].nil?
+			all_stores_within_search = []
+			stores_within_search = Store.where('name iLIKE ?', "%#{params[:search_by_name]}%") #all stores w/ name match 
+			stores_included.each do |inc_store| #in array of stores that have brand take each inc_store
+				stores_within_search.each do |store| #for each store within search
+					if store.name.include?(inc_store.name) #if store is also inc_store
+						all_stores_within_search.push(store) #then add store to array of inc store within search
+					end
+				end
+			end
+# stores equal all w/ brand w/in search and sort by name ASC
+			@stores = all_stores_within_search.sort_by {|store| store.name.downcase}
+		
+# if search by name & brands & is geo then show by distance
+		elsif params[:search_by_name]
+			lat_lng = cookies[:lat_lng].split("|")
 			all_stores_within_search = []
 			stores_within_search = Store.where('name iLIKE ?', "%#{params[:search_by_name]}%").by_distance(origin: lat_lng) #all stores w/ name match & order by distance
 			stores_included.each do |inc_store| #in array of stores that have brand take each inc_store
@@ -61,22 +76,8 @@ class StoresController < ApplicationController
 					end
 				end
 			end
-# stores equal all w/ brand w/in search and sort by name ASC
-			@stores = all_stores_within_search.order("name DESC")
-		end
-# if search by name & brands & is geo then show by distance
-		if params[:search_by_name]
-			lat_lng = cookies[:lat_lng].split("|")
-			all_stores_within_search = []
-			stores_within_search = Store.where('name iLIKE ?', "%#{params[:search_by_name]}%") #all stores w/ name match
-			stores_included.each do |inc_store| #in array of stores that have brand take each inc_store
-				stores_within_search.each do |store| #for each store within search
-					if store.name.include?(inc_store.name) #if store is also inc_store
-						all_stores_within_search.push(store) #then add store to array of inc store within search
-					end
-				end
-			end
-			@stores = all_stores_within_search
+				@stores = all_stores_within_search
+		
 # if there is no search and no geolocation the show all stores and sort by name
 		elsif cookies[:lat_lng].nil?
 			all_stores = Store.all
