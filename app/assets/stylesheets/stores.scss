@@ -120,3 +120,37 @@
 .card .card-action {
 	padding: 10px !important;
 }
+
+div.row {
+	margin-bottom: 10px;
+}
+
+.store-form-submit {
+	position: absolute;
+  top: 18%;
+  right: 2%;
+  font-family: Poiret One;
+  color: #757575;
+  font-size: 15px;
+}
+
+.store-search-form {
+  width: 200px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px;
+}
+
+#store-area input[type=text] {
+  color: #757575 !important;
+}
+
+#store-name input[type=text] {
+  color: #757575 !important;
+}
+
+.brand-in-store {
+  font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 20px;
+}
+
+

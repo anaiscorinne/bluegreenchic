@@ -9,7 +9,7 @@
             <form id="brand">
               
                 <%= form_tag(stores_path, :method => "get") do %>
-                <%= text_field_tag :search, params[:search], placeholder: " search by brand names", :class => "brand-search-form"%>
+                <%= text_field_tag :search, params[:search], placeholder: " look up by brand names", :class => "brand-search-form"%>
                 <%= submit_tag "search", :class => "brand-form-submit" %>
                 <% end %>
               

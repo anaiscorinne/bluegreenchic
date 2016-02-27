@@ -18,7 +18,7 @@
         <hr>
         <ul>
           <% @store.brands.each do |brand| %>
-            <li class=""><a href="/brands/#<%= brand.name%>"><%= brand.name %></a>
+            <li class="brand-in-store"><a href="/brands/#<%= brand.name%>">> <%= brand.name %></a>
             </li>
           <% end %>
         </ul>
