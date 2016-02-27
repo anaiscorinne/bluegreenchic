@@ -33,6 +33,7 @@
     </div>
   </div>
   <div class="row store-card">
+  <% if @stores.present? %>
     <% @stores.each do |store| %>
       <div class="col s12 l4">
         <div class="card small my-store-card" style="margin: 0 15px;">
@@ -55,6 +56,9 @@
         </div>
       </div>
     <% end %>
+  <% else %>
+    <p class="no-search-matches">Oh no! It appears no shops could be found with those search terms.</p>
+  <% end %>
   </div>
 </div>
 

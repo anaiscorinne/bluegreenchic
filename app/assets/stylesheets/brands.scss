@@ -21,22 +21,6 @@
 
 }
 
-#value-nav.fixed {
-	position: fixed; 
-	top: 64px; 
-	left: 0;
-	z-index: 1;
-	background-color: rgb(255,255,255);
-	width: 100%;
-	text-align: center;
-	padding: 0px 30px 0 30px;
-}
-
-.value-nav-class {
-	height: 100px;
-	width: 100%;
-}
-
 
 
 // EVEN ID
@@ -67,8 +51,6 @@
 
 
 
-
-
 .brand-index-title {
 	font-family: 'Poiret One', cursive;
 	font-size: 50px;
@@ -80,13 +62,52 @@
 	margin-left: 10px
 }
 
-
 li.keyvalue-brand-list-li {
 	display: inline-block;
 	list-style: none;
 }
 
+.input_field {
+	width: auto !important;
+}
 
+.extra-room {
+	height: 90px;
+	display: none;
+}
+
+.extra-room-show {
+	display:block !important;
+}
+
+
+
+.brand-form-submit {
+	position: absolute;
+  top: 33%;
+  left: 25%;
+  font-family: Poiret One;
+  color: #757575;
+  font-size: 15px;
+}
+
+.brand-search-form {
+  position: absolute;
+  left: 8%;
+  top: 15%;
+  width: 285px !important;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 20px !important;
+}
+
+input:placeholder-shown {
+	
+}
+
+#brand input[type=text] {
+  color: #757575 !important;
+
+}
 
 
 

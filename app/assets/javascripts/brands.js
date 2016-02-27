@@ -6,10 +6,15 @@ $(window).bind('scroll', function() {
 	var distanceFromTop = $(this).scrollTop();
 	var headerHeight = $('.main-header').height() - $('.main-nav').height();
 		if (distanceFromTop >= headerHeight) {
+			$('.js-extra-room').addClass('extra-room-show')
 			$('#value-nav').addClass('fixed');
+			$('.brand-search-bar').addClass('fixed-brand-search')
 		}
 		else {
+			$('.js-extra-room').removeClass('extra-room-show')
 			$('#value-nav').removeClass('fixed');
+			$('.brand-search-bar').removeClass('fixed-brand-search')
+
 		}
 	});	
 	$('.value-checkbox').on('click', filterBrands);
@@ -22,29 +27,15 @@ function filterBrands(event) {
 		var valueId = $(element).data("value-id")
 		allValueIds.push(valueId)
 	})
-		console.log(allValueIds)
 	$.ajax({
-		url: `/api/keyvalues/`,
+		url: '/api/keyvalues/',
 		data: {valueIds: allValueIds},
 		success: function (response) {
 			var brands = response
-			console.log("BRANDS", brands)
 			$('.js-brand-class').hide();
 			brands.forEach(function(brand, index) {
-						var brandId = brand.id
-						// if (index % 2 == 0 ) {
-						// 	$('.responsive-img.right-align').addClass("brand-image-left");
-						// 	$(`.js-brand-class[data-id="#${brand.id}"]`).show();
-						// }
-						// else {
-						// 	$(`.js-brand-class[data-id="#${brand.id}"]`).addClass();
-							$(`.js-brand-class[data-id="#${brand.id}"]`).show();
-						
-						// decided to only show when a brand matches the brandId
-						// the api returns in order to not write SUPER long
-						// html here.
-						// $(`.js-brand-class[data-id="#${brand.id}"]`).show();
-						
+				var brandId = brand.id
+				$(`.js-brand-class[data-id="#${brand.id}"]`).show();
 			})
 		}
 	})

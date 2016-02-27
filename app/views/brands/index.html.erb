@@ -3,6 +3,21 @@
     <nav>
       <div class="nav-wrapper stick-nav-adhere">
         <a href="/" class="grey-text text-darken-1 brand-logo"> BGC</a>
+        <!-- <div class="container brand-search-bar fixed-brand-search"> -->
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li>
+            <form id="brand">
+              
+                <%= form_tag(stores_path, :method => "get") do %>
+                <%= text_field_tag :search, params[:search], placeholder: " search by brand names", :class => "brand-search-form"%>
+                <%= submit_tag "search", :class => "brand-form-submit" %>
+                <% end %>
+              
+            </form>
+          </li>
+        </ul>
+        
+        <!-- </div> -->
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/#about-us" class="hp-nav-list grey-text text-darken-1">About Us</a></li>
           <li><a href="/blogposts" class="hp-nav-list grey-text text-darken-1">The Blog</a></li>
@@ -28,87 +43,82 @@
       <%= render "keyvalues/index" %>
   </div>
 </div>
-<div class="container">
-    <!-- <div class="col s12 m6"> -->
-      <form>
-        <div class="input-field">
-          <%= form_tag(stores_path, :method => "get") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "search brands by name" %>
-            <%= submit_tag "Search" %>
-          <% end %>
-        </div>
-      </form>
-    <!-- </div> -->
-  </div>
-<% @brands.each_with_index do |brand, index| %>
 
-<!-- THIS IS FOR EVEN ID -->
+<div class= "text-in-parallax extra-room js-extra-room">
+</div>
+<% if @brands.present? %>
+  <% @brands.each_with_index do |brand, index| %>
 
-  <div class="text-in-parallax" id="<%= brand.name%>">
-    <div class="section brand-index">
-      <div class="row js-brand-class"  data-id="#<%= brand.id%>" style="display: block;">
-        <% if index.even? %>
-<div class="right">
-          <div class="col s12 m6">
-            <%= image_tag brand.image.url, :class => "responsive-img right-align brand-image-left" %>
-          </div>
-          <div class="col s12 m6">
-            <div class="brand-body-right">
-              <span class="brand-social-media right">
-                <a target="_blank" href="<%= brand.facebook %>"><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
-                <a target="_blank" href="<%= brand.twitter %>"><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
-                <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
-              </span>
-              <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
-              <br>
-              <ul>
-                <% brand.keyvalues.each do |key| %>
-                  <li class="keyvalue-brand-list-li">
-                    <i class="<%= key.icon %> small icon-<%= key.id %>"></i>
-                  </li>
-                <% end %>
-              </ul>
-              <p class="brand-index-page"><%= brand.description %></p>
-              <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
-                <% if current_user && @user.role == "admin" %>
-                  <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
-                <% end %>
+  <!-- THIS IS FOR EVEN ID -->
+
+    <div class="text-in-parallax js-brand-class" id="<%= brand.name%>" data-id="#<%= brand.id%>" style="display: block;">
+      <div class="section brand-index">
+        <div class="row">
+          <% if index.even? %>
+          <div class="right">
+            <div class="col s12 m6">
+              <%= image_tag brand.image.url, :class => "responsive-img right-align brand-image-left" %>
+            </div>
+            <div class="col s12 m6">
+              <div class="brand-body-right">
+                <span class="brand-social-media right">
+                  <a target="_blank" href="<%= brand.facebook %>"><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
+                  <a target="_blank" href="<%= brand.twitter %>"><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
+                  <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
+                </span>
+                <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
+                <br>
+                <ul>
+                  <% brand.keyvalues.each do |key| %>
+                    <li class="keyvalue-brand-list-li">
+                      <i class="<%= key.icon %> small icon-<%= key.id %>"></i>
+                    </li>
+                  <% end %>
+                </ul>
+                <p class="brand-index-page"><%= brand.description %></p>
+                <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
+                  <% if current_user && @user.role == "admin" %>
+                    <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
+                  <% end %>
+                </div>
               </div>
             </div>
-</div>
 <!-- THIS IS FOR ODD -->
 
-        <% elsif index.odd? %>
-<div class="left">
-          <div class="col s12 m6">
-            <div class="brand-body-left">
-              <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
-              <span class="brand-social-media right">
-                <a target="_blank" href="<%= brand.facebook %>"><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
-                <a target="_blank" href="<%= brand.twitter %>"><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
-                <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
-              </span>
-              <br>
-              <ul>
-                <% brand.keyvalues.each do |key| %>
-                  <li class="keyvalue-brand-list-li">
-                    <i class="<%= key.icon %> small icon-<%= key.id %>"></i>
-                  </li>
-                <% end %>
-              </ul>
-              <p class="brand-index-page"><%= brand.description %></p>
-              <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
-                <% if current_user && @user.role == "admin" %>
-                  <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
-                <% end %>
-            </div>
+          <% elsif index.odd? %>
+            <div class="left">
+              <div class="col s12 m6">
+                <div class="brand-body-left">
+                  <h5><a target="_blank" href="<%= brand.website %>" class="left brand-index-title"><%= brand.name %></a></h5>
+                  <span class="brand-social-media right">
+                    <a target="_blank" href="<%= brand.facebook %>"><i class="blue-text text-darken-4 small mdi mdi-facebook-box"></i></a>
+                    <a target="_blank" href="<%= brand.twitter %>"><i class="blue-text text-lighten-1 small mdi mdi-twitter-box"></i></a>
+                    <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
+                  </span>
+                  <br>
+                  <ul>
+                    <% brand.keyvalues.each do |key| %>
+                      <li class="keyvalue-brand-list-li">
+                        <i class="<%= key.icon %> small icon-<%= key.id %>"></i>
+                      </li>
+                    <% end %>
+                  </ul>
+                  <p class="brand-index-page"><%= brand.description %></p>
+                  <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
+                    <% if current_user && @user.role == "admin" %>
+                      <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
+                    <% end %>
+                </div>
+              </div>
+              <div class="col s12 m6">
+                <%= image_tag brand.image.url, :class => "responsive-img left-align brand-image-right" %>
+              </div>
+            <% end %>
           </div>
-          <div class="col s12 m6">
-            <%= image_tag brand.image.url, :class => "responsive-img left-align brand-image-right" %>
-          </div>
-        <% end %>
-</div>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
+<% else %>
+  <p class="no-search-matches">Oh no! It appears no brands could be found with those search terms.</p>
 <% end %>

@@ -5,7 +5,7 @@ class BrandsController < ApplicationController
 		@user = current_user
 		@keyvalues = Keyvalue.all 
 		if params[:search]
-			@brands = Brand.where('name iLIKE ?', "%#{params[:search_by_name]}%").order("name DESC")
+			@brands = Brand.where('name iLIKE ?', "%#{params[:search]}%").order("name DESC")
 		else
 			@brands = Brand.all
 		end

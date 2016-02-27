@@ -11,6 +11,7 @@ $(document).ready(function(){
 	}
 });
 
+
 // ----------------------------------------------
 
 // function getUserLocation () {
@@ -46,13 +47,14 @@ function getUserLocation() {
 }
 // sets cookie to send the location to ruby
 function setGeoCookie(position) {
+	console.log(position)
+	var now = new Date();
+	var m = 10;
+  now.setTime( now.getTime() + (m * 60 * 1000));
   var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
-  document.cookie = "lat_lng=" + escape(cookie_val);
+  document.cookie = "lat_lng=" + escape(cookie_val) + "; expires=" + now.toGMTString();
+  console.log(document.cookie)
 }
-
-
-
-
 
 
 
