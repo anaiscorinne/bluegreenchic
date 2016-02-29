@@ -3,13 +3,11 @@ Rails.application.routes.draw do
 
   get "/" => 'sites#home'
   get "/stores/brands/:brand" => 'stores#by_brand'
-  # get "/stores/search/:search_by_name" => 'stores#search'
-  # get "/brands/:id/add_values" => 'brands#add_values'
-  # post "/brands/:id/add_values" => 'brands#add_keyvalues'
   
   resources :stores
   resources :brands
   resources :keyvalues
+  resources :blogposts
 
   #api
    scope "/api" do

@@ -1,0 +1,23 @@
+<div class="parallax-container main-header">
+  <%= render "layouts/nav" %>
+   <div class="parallax hp-motto-image">
+      <%= image_tag @post.image.url %>
+    <p class="post-page-motto grey-text text-lighten-4">ethical fashion, sustainable style</p>
+  </div>
+</div>
+
+
+<div class="container text-in-parallax">
+  <div class="row">
+    <div class="col s12 m4">
+    </div>
+  </div>
+   <div class="col s12 m8">
+      <a class="modal-trigger instagram-modal-text" href="#igmodal"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i> <%= @post.title %></a>
+      <p class="post-body"><%= @post.date %></p>
+      <p class="post-body"><%= @post.content %></p>
+    </div>
+  </div>
+</div>
+    
+

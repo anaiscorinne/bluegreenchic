@@ -13,7 +13,7 @@
   $('.store-name-input').on('click', function () {
   	$('.store-name-input').attr('value', "");
 	  });
- $('.store-area-input').on('click', function () {
-	$('.store-area-input').attr('value', "");
-  });
+	 $('.store-area-input').on('click', function () {
+		$('.store-area-input').attr('value', "");
+	  });
   });
