@@ -15,7 +15,7 @@
       <form>
         <div class="input-field store-search-form right" id="store-area">
           <%= form_tag(stores_path, :method => "get") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "look up by city or zip" %>
+            <%= text_field_tag :search, params[:search], placeholder: "look up by city or zip", :class => "store-area-input" %>
             <%= submit_tag "search", :class => "store-form-submit" %>
           <% end %>
         </div>
@@ -25,7 +25,7 @@
       <form>
         <div class="input-field store-search-form" id="stores-name">
           <%= form_tag(stores_path, :method => "get") do %>
-            <%= text_field_tag :search_by_name, params[:search_by_name], placeholder: "look up by store name" %>
+            <%= text_field_tag :search_by_name, params[:search_by_name], placeholder: "look up by store name", :class => "store-name-input" %>
             <%= submit_tag "search", :class => "store-form-submit" %>
           <% end %>
         </div>

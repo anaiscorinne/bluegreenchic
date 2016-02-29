@@ -9,4 +9,11 @@
       out_duration: 400, // Transition out duration
     }
   );
+
+  $('.store-name-input').on('click', function () {
+  	$('.store-name-input').attr('value', "");
+	  });
+ $('.store-area-input').on('click', function () {
+	$('.store-area-input').attr('value', "");
+  });
   });
