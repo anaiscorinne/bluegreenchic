@@ -18,7 +18,11 @@ $(window).bind('scroll', function() {
 		}
 	});	
 	$('.value-checkbox').on('click', filterBrands);
+	$('.brand-search-form').on('click', function () {
+		$('.brand-search-form').val("");
+	});
 });
+
 
 function filterBrands(event) {
 	var valueId = $(this).data("value-id");
