@@ -1,0 +1,30 @@
+<div class="parallax-container main-header">
+  <%= render "layouts/nav" %>
+  <div class="parallax hp-motto-image">
+      <%= image_tag 'beachmiami.jpg' %>
+      <p class="store-index-motto"><span class="deep-orange-text text-darken-4">ethical fashion,<br>sustainable style</span></p>
+    </div>
+</div>
+
+
+<div class="container">
+ <% @posts.each do |post| %>
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card medium">
+        <div class="card-image">
+          <%= image_tag post.cover.url %>
+          <span class="card-title"><%= post.title %></span>
+        </div>
+        <div class="card-content">
+          <p><%= post.date %></p>
+          <p><%= post.description %></p>
+        </div>
+        <div class="card-action">
+          <a href="/posts/<%=post.id %>">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ <% end %>
+</div>

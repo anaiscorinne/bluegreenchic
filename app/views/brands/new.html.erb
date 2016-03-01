@@ -4,7 +4,7 @@
     <div class="row ">
       <div class="col s12 m12">
             <h5 class="center hp-h5-title">Add a new Brand</h5>
-              <%= form_for :brand, html: { multipart: true } do |f| %>
+              <%= form_for [@brand], html: { multipart: true } do |f| %>
 
                 <%= f.label :name %>
                 <%= f.text_field :name, autofocus: true %>

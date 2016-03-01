@@ -1,0 +1,36 @@
+<%= render "layouts/nav" %>
+
+<div class="container">
+    <div class="row ">
+      <div class="col s12 m12">
+            <h5 class="center hp-h5-title">Edit</h5>
+            <%= form_for @post, html: { multipart: true } do |f| %>
+
+            <%= f.label :title %>
+            <%= f.text_field :title, autofocus: true %>
+            <br>
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+            <br>
+            <%= f.label :date %>
+            <%= f.date_field :date, autofocus: true %>
+            <br>
+            <%= f.label :content %>
+            <%= f.text_field :content, autofocus: true %>
+            <br>
+						<br><br>
+            <label>Cover Image</label><br><br>
+            <%= image_tag(@post.cover.thumb.url) if @post.cover? %><br>
+            <%= f.file_field :cover %>
+            <%= f.hidden_field :cover_cache %>
+            <br><br>
+            <%= f.submit "Save" %>
+            <br>
+            <%= link_to("Cancel", brands_path) %>
+            <br>
+            <%= link_to("Home", "/") %>
+
+	      <% end %>
+      </div>
+    </div>
+</div>

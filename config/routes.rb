@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :stores
   resources :brands
   resources :keyvalues
-  resources :blogposts
+  resources :posts
 
   #api
    scope "/api" do
