@@ -17,11 +17,14 @@
           <span class="card-title"><%= post.title %></span>
         </div>
         <div class="card-content">
-          <p><%= post.date %></p>
+          <p><%= post.created_at.strftime("%B, %d, %Y") %></p>
           <p><%= post.description %></p>
         </div>
         <div class="card-action">
           <a href="/posts/<%=post.id %>">Read More</a>
+          <% if current_user && @user.role == "admin" %>
+            <a href="/posts/<%=post.id%>/edit">Edit | </a><a href="/posts/new">Add a New Post</a>
+          <% end %>
         </div>
       </div>
     </div>
