@@ -5,7 +5,16 @@
   <div class="col s12 m12">
         <br><h5 class="center hp-h5-title">Edit <%= @keyvalue %></h5><hr><br>
               <%= form_for [@keyvalue] do |f| %>
-
+                <% if @keyvalue.errors.any? %>
+                    <div>
+                      <p class="error-title red-text"><%= pluralize(@keyvalue.errors.count, "error") %> prevented this keyvalue from saving.</p>
+                      <ul class="error-list red-text">
+                        <% @keyvalue.errors.full_messages.each do |message| %>
+                          <li>> <%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                <% end %>
                 <%= f.label :name %>
                 <%= f.text_field :name, autofocus: true %>
                 <br>

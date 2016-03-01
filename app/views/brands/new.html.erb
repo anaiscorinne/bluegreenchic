@@ -5,7 +5,16 @@
       <div class="col s12 m12">
             <h5 class="center hp-h5-title">Add a new Brand</h5>
               <%= form_for [@brand], html: { multipart: true } do |f| %>
-
+                <% if @brand.errors.any? %>
+                    <div>
+                      <p class="error-title red-text"><%= pluralize(@brand.errors.count, "error") %> prevented this brand from saving.</p>
+                      <ul class="error-list red-text">
+                        <% @brand.errors.full_messages.each do |message| %>
+                          <li>> <%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                <% end %>
                 <%= f.label :name %>
                 <%= f.text_field :name, autofocus: true %>
                 <br>

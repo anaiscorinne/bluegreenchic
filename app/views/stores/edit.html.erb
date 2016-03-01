@@ -6,7 +6,16 @@
         <br>
         <h5 class="center hp-h5-title">Edit Store<hr><br><%= @store.name %></h5>
           <%= form_for [@store], html: { multipart: true } do |f| %>
-
+                <% if @store.errors.any? %>
+                    <div>
+                      <p class="error-title red-text"><%= pluralize(@store.errors.count, "error") %> prevented this store from saving.</p>
+                      <ul class="error-list red-text">
+                        <% @store.errors.full_messages.each do |message| %>
+                          <li>> <%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                <% end %>
             <%= f.label :name %>
             <%= f.text_field :name, autofocus: true %>
             <br>

@@ -53,8 +53,7 @@ before_action :admin_only, only: [:create, :new, :destroy, :edit, :update]
 
 	private
 	def post_params
-		params.require(:post).permit(:title, :description, 
-			:date, :content, :cover)
+		params.require(:post).permit(:title, :description, :content, :cover)
 	end
 
 end
