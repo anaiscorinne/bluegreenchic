@@ -70,7 +70,7 @@
             <%= f.hidden_field :images_cache %>
             <br><br>
             <%= f.submit "Save Edits", :class => "waves-effect waves-light btn" %>
-			<%= link_to "Delete", @store, :method => "delete", :class => "waves-effect waves-light btn red" %>
+			<%= link_to "Delete", @store, :method => "delete", :class => "waves-effect waves-light btn red", :data => {confirm: 'Are you sure?'}  %>
             <br>
           <% end %>
 

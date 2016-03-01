@@ -33,7 +33,7 @@
           <br><br>
           <%= f.submit "Save" %>
           <br><br>
-          <%= link_to "Delete", @post, :method => "delete", :class => "waves-effect waves-light btn red" %>
+          <%= link_to "Delete", @post, :method => "delete", :class => "waves-effect waves-light btn red", :data => {confirm: 'Are you sure?'}  %>
           <br>
           <%= link_to("Cancel", brands_path) %>
           <br>

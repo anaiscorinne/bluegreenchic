@@ -8,6 +8,7 @@
         <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
         <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
         <% if user_signed_in? %>
+          <li><a href="/users/<%= current_user.id %>" class="hp-nav-list grey-text text-darken-1">Profile</a></li>
           <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
         <% else %>
           <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>

@@ -25,7 +25,7 @@
                 <%= f.text_field :icon %>
                 <br>
                 <%= f.submit "Save Edits", :class => "waves-effect waves-light btn" %>
-                <%= link_to "Delete", @keyvalue, :method => "delete", :class => "waves-effect waves-light btn red" %>
+                <%= link_to "Delete", @keyvalue, :method => "delete", :class => "waves-effect waves-light btn red", :data => {confirm: 'Are you sure?'}  %>
                 <br>
                 <% end %>
 

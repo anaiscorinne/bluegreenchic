@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
 before_action :admin_only, only: [:create, :new, :destroy, :edit, :update]
 
 	def index
@@ -47,6 +46,7 @@ before_action :admin_only, only: [:create, :new, :destroy, :edit, :update]
 	end
 
 	def show
+		@user = current_user
 		@post = Post.find_by(id: params[:id])
 	end
 

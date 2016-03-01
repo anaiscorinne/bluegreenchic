@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resources :stores
   resources :brands
   resources :keyvalues
-  resources :posts
+  resources :users, only: [:show]
+
+    resources :posts do
+      resources :comments, only: [:create, :destroy]
+  end
 
   #api
    scope "/api" do
