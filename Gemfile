@@ -6,6 +6,8 @@ gem 'figaro'
 
 gem 'fog'
 
+gem 'rails_12factor', group: :production
+
 gem 'sprockets-es6'
 
 gem 'acts_as_votable', '~> 0.10.0'
