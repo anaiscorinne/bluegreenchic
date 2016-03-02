@@ -1,16 +1,10 @@
-<div class="container">
-<%= form_for([@post, @post.comments.build]) do |f| %>
-	<p>
+
+	<%= form_for([@post, @post.comments.build]) do |f| %>
 		<%= f.label :title %>
 		<%= f.text_field :title %>
-	</p>
-
-	<p>
+	<br>
 		<%= f.label :body %>
 		<%= f.text_area :body %>
-	</p>
-
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+	<br><br>
+		<button type="submit" class="btn-floating waves-effect waves-light red" name="commit"><i class="material-icons">add</i></button>
+	<% end %>

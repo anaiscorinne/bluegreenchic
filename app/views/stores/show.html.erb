@@ -26,22 +26,28 @@
         
     <div class="col s12 m8">
       <a class="modal-trigger instagram-modal-text" href="#igmodal"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i> <%= @store.name %></a>
-      <p class="store-body"><a target="_blank" href="<%= @store.website %>"><%= @store.website %></a></p>
+      <p class="store-body"><a target="_blank" href="<%= @store.website %>"><%= @store.website %></a>
       <p class="store-body"><%= @store.phone %> | <%= @store.address %></p>
-      <% if current_user %>
-        <% if current_user.voted_for? @store %>
-        <div class="div-<%= @store.id %> before">
-          <%= link_to unlike_store_path(@store), method: :post, class: "liked", :data => {:id => @store.id}, :remote => true do %><i id="post-<%= @store.id %>" class="red-text mdi mdi-heart"> favorited</i><% end %>
-        </div>
+      <p class="store-body">
+        <% if current_user %>
+          <% if current_user.voted_for? @store %>
+          <div class="div-<%= @store.id %> before">
+            <%= link_to unlike_store_path(@store), method: :post, class: "liked-store", :data => {:id => @store.id}, :remote => true do %><i id="post-<%= @store.id %>" class="red-text mdi mdi-heart"><span class="favorite-text"> favorited</span></i><% end %>
+          </div>
+          <% else %>
+          <div class="div-<%= @store.id %> before">
+            <%= link_to like_store_path(@store), method: :post, class: "unliked-store", :data => {:id => @store.id}, :remote => true do %><i id="post-<%= @store.id %>" class="grey-text text-darken-1 mdi mdi-heart-outline"><span class="favorite-text"> favorite</span></i><% end %>
+          </div>
+          <% end %>
         <% else %>
-        <div class="div-<%= @store.id %> before">
-          <%= link_to like_store_path(@store), method: :post, class: "unliked", :data => {:id => @store.id}, :remote => true do %><i id="post-<%= @store.id %>" class="grey-text mdi mdi-heart-outline"> favorite</i><% end %>
-        </div>
+          <% if @store.get_likes.size >= 1 %>
+              <a href="/users/sign_up"><i class="red-text mdi mdi-heart"> <%= @store.get_likes.size %></i></a><br>
+            <% else %>
+              <a href="/users/sign_up"><i class="red-text mdi mdi-heart-outline"> 0</i></a><br>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= @store.get_likes.size %><i class="red-text mdi mdi-heart"></i>
-      <% end %>
-      <p class="store-body"><%= @store.description %></p>
+        <%= @store.description %>
+      </p>
     </div>
   </div>
         

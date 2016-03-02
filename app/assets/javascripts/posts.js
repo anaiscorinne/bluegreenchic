@@ -1,12 +1,12 @@
 $(document).on("ready", function () {
 	console.log("HI")
-	$('.before').delegate('.liked', 'click', function (event) {
+	$('.before').delegate('.liked-post', 'click', function (event) {
 		event.preventDefault();
 		var id = $(this).data('id')
 		unlikePost(id);
 	});
 
-	$('.before').delegate('.unliked', 'click', function (event) {
+	$('.before').delegate('.unliked-post', 'click', function (event) {
 		event.preventDefault();
 		var id = $(this).data('id')
 		likePost(id);
@@ -32,8 +32,8 @@ function unlikePost(id) {
 
 function showUnlike(response) {
 	var html = `
-	<a href="/posts/${response.id}/like" data-method="post" class="unliked" data-id="${response.id}" data-remote="true">
-		<i id="post-${response.id}" class="grey-text mdi mdi-heart-outline"> favorite</i>
+	<a href="/posts/${response.id}/like" data-method="post" class="unliked-post" data-id="${response.id}" data-remote="true">
+		<i id="post-${response.id}" class="grey-text text-darken-1 mdi mdi-heart-outline"><span class="favorite-text"> favorite</span></i>
 	</a>
 	`
 	$(`.div-${response.id}`).append(html);
@@ -57,8 +57,8 @@ function likePost(id) {
 
 function showLike(response) {
 	var html = `
-	<a href="/posts/${response.id}/unlike" data-method="post" class="liked" data-id="${response.id}" data-remote="true">
-		<i id="post-${response.id}" class="red-text mdi mdi-heart"> favorited</i>
+	<a href="/posts/${response.id}/unlike" data-method="post" class="liked-post" data-id="${response.id}" data-remote="true">
+		<i id="post-${response.id}" class="red-text mdi mdi-heart"><span class="favorite-text"> favorited</span></i>
 	</a>
 	`
 	$(`.div-${response.id}`).append(html);

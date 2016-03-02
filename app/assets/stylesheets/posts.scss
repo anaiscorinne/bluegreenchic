@@ -1,3 +1,63 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.blog-title {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 52px;
+	margin-top: 40px;
+}
+
+.post-index-motto {
+	font-family: 'Poiret One';
+	font-size: 52px;
+	font-style: italic;
+	position: absolute;
+	top: 32%;
+	left: 5%
+}
+
+.post-title {
+	font-family: 'Poiret One';
+	font-size: 24px !important;
+}
+
+.post-page-title {
+	font-family: 'Poiret One';
+	font-size: 34px !important;
+}
+
+.post-date {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+}
+
+.post-page-date {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	margin-top: 0 !important;
+}
+
+.edit-post {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 16px;
+	color: #ffab40;
+}
+
+.post-description {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	margin-bottom: 10px !important;
+	text-align: justify;
+  text-justify: inter-word;
+}
+
+.post-page-body {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	text-align: justify;
+  text-justify: inter-word;
+}
+
+.collection-posts {
+	margin-top: 40px !important;
+}

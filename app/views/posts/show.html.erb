@@ -2,41 +2,90 @@
   <%= render "layouts/nav" %>
   <div class="parallax hp-motto-image">
       <%= image_tag @post.cover.url %>
-      <p class="store-index-motto"><span class="white-text">ethical fashion  sustainable style</span></p>
+      <p class="post-index-motto"><span class="white-text">ethical fashion,<br> sustainable style</span></p>
     </div>
 </div>
 
 <div class="container text-in-parallax">
   <div class="row">
     <div class="col s12 m12">
-      <h5><%= @post.title %></h5>
-      <p><%= @post.created_at.strftime("%d %B %Y") %></p>
       <% if current_user %>
         <% if current_user.voted_for? @post %>
         <div class="div-<%= @post.id %> before">
-          <%= link_to unlike_post_path(@post), method: :post, class: "liked", :data => {:id => @post.id}, :remote => true do %><i id="post-<%= @post.id %>" class="red-text mdi mdi-heart"> favorited</i><% end %>
+          <%= link_to unlike_post_path(@post), method: :post, class: "liked-post", :data => {:id => @post.id}, :remote => true do %><i id="post-<%= @post.id %>" class="red-text mdi mdi-heart"><span class="favorite-text"> favorited</span></i><% end %>
         </div>
         <% else %>
         <div class="div-<%= @post.id %> before">
-          <%= link_to like_post_path(@post), method: :post, class: "unliked", :data => {:id => @post.id}, :remote => true do %><i id="post-<%= @post.id %>" class="grey-text mdi mdi-heart-outline"> favorite</i><% end %>
+          <%= link_to like_post_path(@post), method: :post, class: "unliked-post", :data => {:id => @post.id}, :remote => true do %><i id="post-<%= @post.id %>" class="grey-text text-darken-1 mdi mdi-heart-outline"><span class="favorite-text"> favorite</span></i><% end %>
         </div>
         <% end %>
       <% else %>
-        <%= @post.get_likes.size %><i class="red-text mdi mdi-heart"></i>
+        <% if @post.get_likes.size >= 1 %>
+            <a href="/users/sign_up"><i class="red-text mdi mdi-heart"> <%= @post.get_likes.size %></i></a><br>
+          <% else %>
+            <a href="/users/sign_up"><i class="red-text mdi mdi-heart-outline"> 0</i></a><br>
+        <% end %>
       <% end %>
+      <h5 class="title post-page-title red-text center"><%= @post.title %></h5>
+      <p class="post-page-date grey-text text-darken-2 center"><%= @post.created_at.strftime("%d %B %Y") %></p>
       <hr>
-      <%= @post.content %>
+      <p class="post-page-body"><%= @post.content %></p>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="comment-section">
-    <h5><%= @post.comments.count %> Comments</h5>
-    <%= render @post.comments %>
-    <% if current_user %>
-    <p>Add a comment:</p>
-    <%= render "comments/form" %>
-    <% end %>
+  <div class="row center">
+    <div class="col s12 m12">
+      <% if current_user %>
+        <a href="#comment-modal" class="btn-floating btn-large grey lighten-1 red modal-trigger">
+          <i class="large material-icons">mode_edit</i>
+        </a>
+        <a href="#comment-modal" class="grey-text text-lighten-1 modal-trigger add-comment"> Add a comment</a>
+      <% else %>
+        <a href="/users/sign_up" class="add-comment"> Sign in to comment below!</a>
+      <% end %>
+    </div>
+  </div>
+
+  <div class= "row">
+    
+    <div class="col s12 m2">
+    <p></p>
+    </div>
+
+    <div class="col s12 m8">
+      <% if @post.comments.count >= 1 %>
+        <% @comments.each do |comment| %>
+          <ul class="collection">
+            <li class="collection-item">
+              <span class="comment-title"><%= comment.title %> posted by <%= User.find(comment.user_id).first_name %></span><br>
+              <span class="comment-date"><%= time_ago_in_words(comment.created_at) %> ago</span>
+              <hr>
+              <p class="comment-body grey-text text-darken-1"><%= comment.body %>
+              <% if current_user && comment.user_id == current_user.id %>
+                <%= link_to "delete", [comment.post, comment], method: :delete, class: "waves-effect delete-comment waves-light btn red right", data: {confirm: 'Are you sure?'}  %>
+              <% end %>
+              </p>
+            </li>
+          </ul>
+        <% end %>
+      <% else %>
+        <p class="comment-body"> No one has commented yet! </p>
+      <% end %>
+
+      <!-- Modal Structure -->
+      <div id="comment-modal" class="modal">
+        <div class="modal-content">
+          <p class="your-comment-title center">Your thoughts?</p>
+          <%= render "comments/form" %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col s12 m2">
+    <p></p>
+    </div>
+
   </div>
 </div>

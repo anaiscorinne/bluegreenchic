@@ -1,3 +1,39 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.add-comment {
+	font-family: 'Poiret One';
+	font-size: 22px;
+}
+
+.comment-body {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	text-align: justify;
+  text-justify: inter-word;
+}
+
+.delete-comment {
+	height: 30px !important;
+	font-size: 12px;
+	font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+.comment-title {
+	font-family: 'Poiret One';
+	font-size: 18px;
+	color: #039be5;
+}
+
+.your-comment-title {
+	font-family: 'Poiret One';
+	font-size: 28px;
+	color: #039be5;
+}
+
+.comment-date {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	font-style: italic;
+}

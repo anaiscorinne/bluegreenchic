@@ -7,40 +7,45 @@
 </div>
 
 
-<!-- <div class="container"> -->
+<div class="container">
   <div class="row">
+  <div class="col s12 m12">
+    <h5 class="blog-title center grey-text text-darken-1">The Blog</h5>
+  </div>
    <% @posts.each do |post| %>
     <div class="col s12 m12">
-      <div class="card medium">
-        <div class="card-image">
-          <%= image_tag post.cover.url %>
-          <span class="card-title"><%= post.title %></span>
-        </div>
-        <div class="card-content">
-          <p><%= post.created_at.strftime("%d %B %Y") %></p>
-          <p><%= post.description %></p>
-        </div>
-        <div class="card-action">
-          <a href="/posts/<%=post.id %>">Read More</a>
+      <ul class="collection collection-posts">
+        <li class="collection-item avatar">
+          <%= image_tag post.cover.thumb.url, class: "circle" %>
+          <a href="/posts/<%=post.id %>" class="title post-title"><%= post.title %></a>
+          <p class="post-date grey-text text-darken-2"><%= post.created_at.strftime("%d %B %Y") %></p><hr>
+          <a href="/posts/<%=post.id %>"><p class="post-description grey-text"><%= post.description %></p></a>
+          <span class="secondary-content">
             <% if current_user %>
               <% if current_user.voted_for? post %>
               <div class="div-<%= post.id %> before">
-                <%= link_to unlike_post_path(post), method: :post, class: "liked", :data => {:id => post.id}, :remote => true do %><i id="post-<%= post.id %>" class="red-text mdi mdi-heart"> favorited</i><% end %>
+                <%= link_to unlike_post_path(post), method: :post, class: "liked-post", :data => {:id => post.id}, :remote => true do %><i id="post-<%= post.id %>" class="red-text mdi mdi-heart"><span class="favorite-text"> favorited</span></i><% end %>
               </div>
               <% else %>
               <div class="div-<%= post.id %> before">
-                <%= link_to like_post_path(post), method: :post, class: "unliked", :data => {:id => post.id}, :remote => true do %><i id="post-<%= post.id %>" class="grey-text mdi mdi-heart-outline"> favorite</i><% end %>
+                <%= link_to like_post_path(post), method: :post, class: "unliked-post", :data => {:id => post.id}, :remote => true do %><i id="post-<%= post.id %>" class="grey-text text-darken-1 mdi mdi-heart-outline"><span class="favorite-text"> favorite</span></i><% end %>
               </div>
               <% end %>
             <% else %>
-              <%= post.get_likes.size %><i class="red-text mdi mdi-heart"></i>
+              <% if post.get_likes.size >= 1 %>
+                <a href="/users/sign_up"><i class="red-text mdi mdi-heart"> <%= post.get_likes.size %></i></a>
+              <% else %>
+                <a href="/users/sign_up"><i class="red-text mdi mdi-heart-outline"> 0</i></a>
+              <% end %>
             <% end %>
+          </span>
           <% if current_user && @user.role == "admin" %>
-            <a href="/posts/<%=post.id%>/edit">Edit | </a><a href="/posts/new">Add a New Post</a>
+            <a class="edit-post" href="/posts/<%=post.id%>/edit">Edit | </a><a class="edit-post" href="/posts/new">Add a New Post</a>
           <% end %>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
    <% end %>
   </div>
-<!-- </div> -->
+</div>
+                

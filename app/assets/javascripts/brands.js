@@ -22,13 +22,13 @@ $(window).bind('scroll', function() {
 		$('.brand-search-form').val("");
 	});
 
-	$('.before').delegate('.liked', 'click', function (event) {
+	$('.before').delegate('.liked-brand', 'click', function (event) {
 		event.preventDefault();
 		var id = $(this).data('id')
 		unlikeBrand(id);
 	});
 
-	$('.before').delegate('.unliked', 'click', function (event) {
+	$('.before').delegate('.unliked-brand', 'click', function (event) {
 		event.preventDefault();
 		var id = $(this).data('id')
 		likeBrand(id);
@@ -75,8 +75,8 @@ function unlikeBrand(id) {
 
 function showUnlikeBrand(response) {
 	var html = `
-	<a href="/brands/${response.id}/like" data-method="post" class="unliked" data-id="${response.id}" data-remote="true">
-		<i id="brand-${response.id}" class="grey-text mdi mdi-heart-outline"> favorite</i>
+	<a href="/brands/${response.id}/like" data-method="post" class="unliked-brand" data-id="${response.id}" data-remote="true">
+		<i id="brand-${response.id}" class="grey-text text-darken-1 mdi mdi-heart-outline"><span class="favorite-text"> favorite</span></i>
 	</a>
 	`
 	$(`.div-${response.id}`).append(html);
@@ -100,8 +100,8 @@ function likeBrand(id) {
 
 function showLikeBrand(response) {
 	var html = `
-	<a href="/brands/${response.id}/unlike" data-method="post" class="liked" data-id="${response.id}" data-remote="true">
-		<i id="brand-${response.id}" class="red-text mdi mdi-heart"> favorited</i>
+	<a href="/brands/${response.id}/unlike" data-method="post" class="liked-brand" data-id="${response.id}" data-remote="true">
+		<i id="brand-${response.id}" class="red-text mdi mdi-heart"><span class="favorite-text"> favorited</span></i>
 	</a>
 	`
 	$(`.div-${response.id}`).append(html);

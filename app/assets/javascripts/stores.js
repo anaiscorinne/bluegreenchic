@@ -17,13 +17,13 @@
 		$('.store-area-input').attr('value', "");
 	  });
 
-   $('.before').delegate('.liked', 'click', function (event) {
+   $('.before').delegate('.liked-store', 'click', function (event) {
     event.preventDefault();
     var id = $(this).data('id')
     unlikeStore(id);
   });
 
-  $('.before').delegate('.unliked', 'click', function (event) {
+  $('.before').delegate('.unliked-store', 'click', function (event) {
     event.preventDefault();
     var id = $(this).data('id')
     likeStore(id);
@@ -50,8 +50,8 @@ function unlikeStore(id) {
 
 function showUnlikeStore(response) {
   var html = `
-  <a href="/stores/${response.id}/like" data-method="post" class="unliked" data-id="${response.id}" data-remote="true">
-    <i id="store-${response.id}" class="grey-text mdi mdi-heart-outline"> favorite</i>
+  <a href="/stores/${response.id}/like" data-method="post" class="unliked-store" data-id="${response.id}" data-remote="true">
+    <i id="store-${response.id}" class="grey-text text-darken-1 mdi mdi-heart-outline"><span class="favorite-text"> favorite</span></i>
   </a>
   `
   $(`.div-${response.id}`).append(html);
@@ -75,8 +75,8 @@ function likeStore(id) {
 
 function showLikeStore(response) {
   var html = `
-  <a href="/stores/${response.id}/unlike" data-method="post" class="liked" data-id="${response.id}" data-remote="true">
-    <i id="store-${response.id}" class="red-text mdi mdi-heart"> favorited</i>
+  <a href="/stores/${response.id}/unlike" data-method="post" class="liked-store" data-id="${response.id}" data-remote="true">
+    <i id="store-${response.id}" class="red-text mdi mdi-heart"><span class="favorite-text"> favorited</span></i>
   </a>
   `
   $(`.div-${response.id}`).append(html);

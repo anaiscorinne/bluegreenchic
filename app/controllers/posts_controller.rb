@@ -51,6 +51,7 @@ protect_from_forgery with: :null_session
 	def show
 		@user = current_user
 		@post = Post.find_by(id: params[:id])
+		@comments = @post.comments.all
 	end
 
 	def like 

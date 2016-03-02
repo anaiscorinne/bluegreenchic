@@ -57,21 +57,6 @@
 	bottom: 1%;
 }
 
-.store-card-show-me-edit {
-	position: absolute;
-	bottom: -3%;
-	right: -6%;
-	font-family: 'Poiret One';
-	font-size: 14px;
-}
-
-.store-card-show-me-new {
-	position: absolute;
-	bottom: -3%;
-	right: 22%;
-	font-family: 'Poiret One';
-	font-size: 14px;
-}
 
 .brand-in-modal ul {
 	margin: 0;
@@ -153,4 +138,10 @@ div.row {
 	font-size: 20px;
 }
 
-
+.edit-stores {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 16px;
+	color: #ffab40;
+	text-transform: lowercase !important;
+	margin-right: 0 !important;
+}

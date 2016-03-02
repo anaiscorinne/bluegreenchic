@@ -33,7 +33,7 @@
   		<p class="center likes-header">The Blog</p><hr class="likes-hr">
   		<ul>
   			<% @liked_posts.each do |post| %>
-	        <li><a class="likes-list" href="/posts/<%= post.id %>">> <%= post.name %></a></li>
+	        <li><a class="likes-list" href="/posts/<%= post.id %>">> <%= post.title %></a></li>
 	       <% end %>
   		</ul>
   	</div>

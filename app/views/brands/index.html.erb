@@ -24,7 +24,7 @@
           <li><a href="/brands" class="hp-nav-list grey-text text-darken-1">The Brands</a></li>
           <li><a href="/stores" class="hp-nav-list grey-text text-darken-1">Shop Local</a></li>
           <% if user_signed_in? %>
-            <li><a href="/users/<%= current_user.id %>" class="hp-nav-list grey-text text-darken-1">Profile</a></li>
+            <li><a href="/users/<%= current_user.id %>" class="hp-nav-list red-text"><i class="mdi mdi-heart"></i></a></li>
             <li><a href="/users/sign_out" data-method="DELETE" class="hp-nav-list grey-text text-darken-1">Logout</a></li>
           <% else %>
             <li><a href="/users/sign_up" class="hp-nav-list grey-text text-darken-1">Login</a></li>
@@ -76,23 +76,29 @@
                     </li>
                   <% end %>
                 </ul>
-                <p class="brand-index-page"><%= brand.description %></p>
+                <p class="brand-index-page">
+                  <% if current_user %>
+                      <% if current_user.voted_for? brand %>
+                      <div class="div-<%= brand.id %> before">
+                        <%= link_to unlike_brand_path(brand), method: :post, class: "liked-brand", :data => {:id => brand.id}, :remote => true do %><i id="brand-<%= brand.id %>" class="red-text mdi mdi-heart"><span class="favorite-text"> favorited</span></i><% end %>
+                      </div>
+                      <% else %>
+                      <div class="div-<%= brand.id %> before">
+                        <%= link_to like_brand_path(brand), method: :post, class: "unliked-brand", :data => {:id => brand.id}, :remote => true do %><i id="brand-<%= brand.id %>" class="grey-text text-darken-1 mdi mdi-heart-outline"><span class="favorite-text"> favorite</span></i><% end %>
+                      </div>
+                      <% end %>
+                    <% else %>
+                      <% if brand.get_likes.size >= 1 %>
+                        <a href="/users/sign_up"><i class="red-text mdi mdi-heart"> <%= brand.get_likes.size %></i></a><br>
+                      <% else %>
+                        <a href="/users/sign_up"><i class="red-text mdi mdi-heart-outline"> 0</i></a><br>
+                      <% end %>
+                    <% end %>
+                  <%= brand.description %>
+                </p>
                 <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
-                <% if current_user %>
-                  <% if current_user.voted_for? brand %>
-                  <div class="div-<%= brand.id %> before">
-                    <%= link_to unlike_brand_path(brand), method: :post, class: "liked", :data => {:id => brand.id}, :remote => true do %><i id="brand-<%= brand.id %>" class="red-text mdi mdi-heart"> favorited</i><% end %>
-                  </div>
-                  <% else %>
-                  <div class="div-<%= brand.id %> before">
-                    <%= link_to like_brand_path(brand), method: :post, class: "unliked", :data => {:id => brand.id}, :remote => true do %><i id="brand-<%= brand.id %>" class="grey-text mdi mdi-heart-outline"> favorite</i><% end %>
-                  </div>
-                  <% end %>
-                <% else %>
-                  <%= brand.get_likes.size %><i class="red-text mdi mdi-heart"></i>
-                <% end %>
                   <% if current_user && @user.role == "admin" %>
-                    <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
+                    <a class="edit-brands" href="/brands/<%=brand.id%>/edit">Edit | </a><a class="edit-brands" href="/brands/new">Add New Brand</a>
                   <% end %>
                 </div>
               </div>
@@ -110,30 +116,39 @@
                     <a target="_blank" href="<%= brand.instagram %>"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i></a>
                   </span>
                   <br>
+                  
                   <ul>
                     <% brand.keyvalues.each do |key| %>
                       <li class="keyvalue-brand-list-li">
                         <i class="<%= key.icon %> small icon-<%= key.id %>"></i>
                       </li>
                     <% end %>
+                   
                   </ul>
-                  <p class="brand-index-page"><%= brand.description %></p>
-                  <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a><br>
-                    <% if current_user %>
+                  <p class="brand-index-page">
+                     <% if current_user %>
                       <% if current_user.voted_for? brand %>
                       <div class="div-<%= brand.id %> before">
-                        <%= link_to unlike_brand_path(brand), method: :post, class: "liked", :data => {:id => brand.id}, :remote => true do %><i id="brand-<%= brand.id %>" class="red-text mdi mdi-heart"> favorited</i><% end %>
+                        <%= link_to unlike_brand_path(brand), method: :post, class: "liked-brand", :data => {:id => brand.id}, :remote => true do %><i id="brand-<%= brand.id %>" class="red-text mdi mdi-heart"><span class="favorite-text"> favorited</span></i><% end %>
                       </div>
                       <% else %>
                       <div class="div-<%= brand.id %> before">
-                        <%= link_to like_brand_path(brand), method: :post, class: "unliked", :data => {:id => brand.id}, :remote => true do %><i id="brand-<%= brand.id %>" class="grey-text mdi mdi-heart-outline"> favorite</i><% end %>
+                        <%= link_to like_brand_path(brand), method: :post, class: "unliked-brand", :data => {:id => brand.id}, :remote => true do %><i id="brand-<%= brand.id %>" class="grey-text text-darken-1 mdi mdi-heart-outline"><span class="favorite-text"> favorite</span></i><% end %>
                       </div>
                       <% end %>
                     <% else %>
-                      <%= brand.get_likes.size %><i class="red-text mdi mdi-heart"></i>
+                      <% if brand.get_likes.size >= 1 %>
+                        <a href="/users/sign_up"><i class="red-text mdi mdi-heart"> <%= brand.get_likes.size %></i></a><br>
+                      <% else %>
+                        <a href="/users/sign_up"><i class="red-text mdi mdi-heart-outline"> 0</i></a><br>
+                      <% end %>
                     <% end %>
+                    <%= brand.description %>
+                  </p>
+                 
+                  <a href="/stores/brands/<%=brand.name%>"><i class="small material-icons">store</i><br>Shop <%= brand.name %> near you...</a>
                     <% if current_user && @user.role == "admin" %>
-                      <a href="/brands/<%=brand.id%>/edit">Edit | </a><a href="/brands/new">Add New Brand</a>
+                      <br><a class="edit-brands" href="/brands/<%=brand.id%>/edit">Edit | </a><a class="edit-brands" href="/brands/new">Add New Brand</a>
                     <% end %>
                 </div>
               </div>
