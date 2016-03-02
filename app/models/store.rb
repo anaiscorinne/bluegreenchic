@@ -16,7 +16,7 @@ class Store < ActiveRecord::Base
   validates :ig_url_three, presence: true
   validates :ig_url_four, presence: true
   validates :ig_url_one, presence: true
-  validates :images, presence: true
+  # validates :images, presence: true
 
 
   attr_accessor :images_cache
