@@ -16,4 +16,68 @@
 	 $('.store-area-input').on('click', function () {
 		$('.store-area-input').attr('value', "");
 	  });
+
+   $('.before').delegate('.liked', 'click', function (event) {
+    event.preventDefault();
+    var id = $(this).data('id')
+    unlikeStore(id);
   });
+
+  $('.before').delegate('.unliked', 'click', function (event) {
+    event.preventDefault();
+    var id = $(this).data('id')
+    likeStore(id);
+  });
+  });
+
+
+
+function unlikeStore(id) {
+  var storeId = id;
+  $.ajax ({
+    url: `/stores/${storeId}/unlike`,
+    type: "POST",
+    success: function(response) {
+      $(`.div-${response.id}`).empty();
+      console.log(response)
+      showUnlikeStore(response)
+    },
+    error: function(){
+      console.log("Cry");
+    }
+  });
+}
+
+function showUnlikeStore(response) {
+  var html = `
+  <a href="/stores/${response.id}/like" data-method="post" class="unliked" data-id="${response.id}" data-remote="true">
+    <i id="store-${response.id}" class="grey-text mdi mdi-heart-outline"> favorite</i>
+  </a>
+  `
+  $(`.div-${response.id}`).append(html);
+}
+
+function likeStore(id) {
+  var storeId = id;
+  $.ajax ({
+    url: `/stores/${storeId}/unlike`,
+    type: "POST",
+    success: function(response) {
+      $(`.div-${response.id}`).empty();
+      console.log(response)
+      showLikeStore(response);
+    },
+    error: function(){
+      console.log("Cry");
+    }
+  });
+}
+
+function showLikeStore(response) {
+  var html = `
+  <a href="/stores/${response.id}/unlike" data-method="post" class="liked" data-id="${response.id}" data-remote="true">
+    <i id="store-${response.id}" class="red-text mdi mdi-heart"> favorited</i>
+  </a>
+  `
+  $(`.div-${response.id}`).append(html);
+}

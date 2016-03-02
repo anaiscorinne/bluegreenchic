@@ -128,6 +128,22 @@ class StoresController < ApplicationController
 		redirect_to stores_path
 	end
 
+		def like 
+  	@store = Store.find(params[:id])
+  	@store.upvote_by current_user
+  	@store.save
+		render json: @store
+		# redirect_to :back
+	end
+
+	def unlike
+		@store = Store.find(params[:id])
+  	@store.unliked_by current_user
+  	@store.save
+  	render json: @store
+  	# redirect_to :back
+	end
+
 	private
 	def store_params
 		params.require(:store).permit(:name, :website, :instagram, 

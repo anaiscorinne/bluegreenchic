@@ -1,4 +1,40 @@
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.email %>
-<%= @user.birthday %>
+<div class="parallax-container main-header">
+  <%= render "layouts/nav" %>
+  <div class="parallax hp-motto-image">
+      <%= image_tag 'lie-model-natural.jpg' %>
+      <p class="likes-index-motto grey-text text-lighten-2">ethical fashion, sustainable style</p>
+    </div>
+</div>
+<div class="container text-in-parallax">
+  <div class="row">
+  	<div class="col s12 m12">
+  		<h5 class="center red-text likes-title"><i class="mdi mdi-heart red-text"></i> <%= @user.first_name %> <%= @user.last_name %>'s Favorites <i class="mdi mdi-heart red-text"></i></h5>
+  	</div>
+  </div>
+  <div class="row">
+
+  	<div class="col s12 m4">
+  		<p class="center likes-header">The Brands</p><hr class="likes-hr">
+  		<ul>
+  			<% @liked_brands.each do |brand| %>
+      		<li><a class="likes-list" href="/brands/#<%= brand.name %>">> <%= brand.name %></a></li>
+    		<% end %>
+    	</ul>
+  	</div>
+  	<div class="col s12 m4">
+  		<p class="center likes-header">The Shops</p><hr class="likes-hr">
+  		<ul>
+  			<% @liked_stores.each do |store| %>
+	  			<li><a class="likes-list" href="/stores/<%= store.id %>">> <%= store.name %></a></li>
+  			<% end %>
+  		</ul>
+  	</div>
+  	<div class="col s12 m4">
+  		<p class="center likes-header">The Blog</p><hr class="likes-hr">
+  		<ul>
+  			<% @liked_posts.each do |post| %>
+	        <li><a class="likes-list" href="/posts/<%= post.id %>">> <%= post.name %></a></li>
+	       <% end %>
+  		</ul>
+  	</div>
+  </div>

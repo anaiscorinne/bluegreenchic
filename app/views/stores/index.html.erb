@@ -48,8 +48,21 @@
               <p class="store-card-body grey-text text-grey-darken-2"><%= store.desc_preview %></p>
             </div>
           </a>
-          <% if current_user && @user.role == "admin" %>
             <div class="card-action">
+               <% if current_user %>
+                <% if current_user.voted_for? store %>
+                <div class="div-<%= store.id %> before">
+                  <%= link_to unlike_store_path(store), method: :post, class: "liked", :data => {:id => store.id}, :remote => true do %><i id="store-<%= store.id %>" class="red-text mdi mdi-heart"> favorited</i><% end %>
+                </div>
+                <% else %>
+                <div class="div-<%= store.id %> before">
+                  <%= link_to like_store_path(store), method: :post, class: "unliked", :data => {:id => store.id}, :remote => true do %><i id="store-<%= store.id %>" class="grey-text mdi mdi-heart-outline"> favorite</i><% end %>
+                </div>
+                <% end %>
+              <% else %>
+                <%= store.get_likes.size %><i class="red-text mdi mdi-heart"></i>
+              <% end %>
+              <% if current_user && @user.role == "admin" %>
               <a href="/stores/<%=store.id%>/edit" class="store-card-show-me-edit">| Edit Store</a><a href="/stores/new" class="store-card-show-me-new">Add New</a>
             </div>
           <% end %>

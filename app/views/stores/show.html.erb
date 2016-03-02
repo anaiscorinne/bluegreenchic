@@ -28,14 +28,20 @@
       <a class="modal-trigger instagram-modal-text" href="#igmodal"><i class="brown-text text-lighten-1 small mdi mdi-instagram"></i> <%= @store.name %></a>
       <p class="store-body"><a target="_blank" href="<%= @store.website %>"><%= @store.website %></a></p>
       <p class="store-body"><%= @store.phone %> | <%= @store.address %></p>
+      <% if current_user %>
+        <% if current_user.voted_for? @store %>
+        <div class="div-<%= @store.id %> before">
+          <%= link_to unlike_store_path(@store), method: :post, class: "liked", :data => {:id => @store.id}, :remote => true do %><i id="post-<%= @store.id %>" class="red-text mdi mdi-heart"> favorited</i><% end %>
+        </div>
+        <% else %>
+        <div class="div-<%= @store.id %> before">
+          <%= link_to like_store_path(@store), method: :post, class: "unliked", :data => {:id => @store.id}, :remote => true do %><i id="post-<%= @store.id %>" class="grey-text mdi mdi-heart-outline"> favorite</i><% end %>
+        </div>
+        <% end %>
+      <% else %>
+        <%= @store.get_likes.size %><i class="red-text mdi mdi-heart"></i>
+      <% end %>
       <p class="store-body"><%= @store.description %></p>
-
-      <p>OR GOOGLR MAPS GOES HERE</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12 m12">
-      MAP GOES HERE - GoogleMaps API
     </div>
   </div>
         
