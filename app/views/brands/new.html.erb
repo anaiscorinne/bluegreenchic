@@ -39,6 +39,7 @@
                     <%= label_tag :keyvalue_ids, value.name, :for => "value_#{value.id}" %>
                   <% end %>
                 </ul>
+                
                 <br><br>
                 <label>Image</label><br><br>
                 <%= image_tag(@brand.image.thumb.url) if @brand.image? %><br>
