@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'sprockets', '>= 3.0.0'
 
+gem 'figaro'
+
+gem 'fog'
+
 gem 'sprockets-es6'
 
 gem 'acts_as_votable', '~> 0.10.0'
