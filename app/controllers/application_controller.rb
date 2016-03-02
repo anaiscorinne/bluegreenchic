@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
  		flash[:access_denied] = "Access DENIED. You must be an admin to see this page."
  		redirect_to new_user_registration_path
  	end
- end
+ end  
 
 # only ask for location once during session
  def lat_lng
