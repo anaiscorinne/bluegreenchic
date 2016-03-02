@@ -1,6 +1,6 @@
 class BrandsController < ApplicationController
 	before_action :admin_only, only: [:create, :new, :destroy, :edit, :update, :show]
-
+	
 	def index
 		@user = current_user
 		@keyvalues = Keyvalue.all 
@@ -44,6 +44,22 @@ class BrandsController < ApplicationController
 		@brand = Brand.find(params[:id])
 		@brand.destroy
 		redirect_to brands_path
+	end
+
+	def like 
+  	@brand = Brand.find(params[:id])
+  	@brand.upvote_by current_user
+  	@brand.save
+		render json: @brand
+		# redirect_to :back
+	end
+
+	def unlike
+		@brand = Brand.find(params[:id])
+  	@brand.unliked_by current_user
+  	@brand.save
+  	render json: @brand
+  	# redirect_to :back
 	end
 
 

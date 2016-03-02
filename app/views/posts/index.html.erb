@@ -22,6 +22,19 @@
         </div>
         <div class="card-action">
           <a href="/posts/<%=post.id %>">Read More</a>
+            <% if current_user %>
+              <% if current_user.voted_for? post %>
+              <div class="div-<%= post.id %> before">
+                <%= link_to unlike_post_path(post), method: :post, class: "liked", :data => {:id => post.id}, :remote => true do %><i id="post-<%= post.id %>" class="red-text mdi mdi-heart"></i><% end %>
+              </div>
+              <% else %>
+              <div class="div-<%= post.id %> before">
+                <%= link_to like_post_path(post), method: :post, class: "unliked", :data => {:id => post.id}, :remote => true do %><i id="post-<%= post.id %>" class="grey-text mdi mdi-heart-outline"></i><% end %>
+              </div>
+              <% end %>
+            <% else %>
+              <%= post.get_likes.size %><i class="red-text mdi mdi-heart"></i>
+            <% end %>
           <% if current_user && @user.role == "admin" %>
             <a href="/posts/<%=post.id%>/edit">Edit | </a><a href="/posts/new">Add a New Post</a>
           <% end %>

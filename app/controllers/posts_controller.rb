@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 before_action :admin_only, only: [:create, :new, :destroy, :edit, :update]
+before_action :authenticate_user!, only: [:like, :unlike]
+
+protect_from_forgery with: :null_session
 
 	def index
 		@user = current_user
@@ -50,6 +53,21 @@ before_action :admin_only, only: [:create, :new, :destroy, :edit, :update]
 		@post = Post.find_by(id: params[:id])
 	end
 
+	def like 
+  	@post = Post.find(params[:id])
+  	@post.upvote_by current_user
+  	@post.save
+		render json: @post
+		# redirect_to :back
+	end
+
+	def unlike
+		@post = Post.find(params[:id])
+  	@post.unliked_by current_user
+  	@post.save
+  	render json: @post
+  	# redirect_to :back
+	end
 
 	private
 	def post_params

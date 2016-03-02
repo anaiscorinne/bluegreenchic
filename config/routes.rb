@@ -4,13 +4,27 @@ Rails.application.routes.draw do
   get "/" => 'sites#home'
   get "/stores/brands/:brand" => 'stores#by_brand'
   
-  resources :stores
-  resources :brands
+  resources :stores do
+    member do
+      post "like" => "stores#like"
+      post "unlike" => "stores#unlike"
+    end
+  end
+  resources :brands do
+    member do
+      post "like" => "brands#like"
+      post "unlike" => "brands#unlike"
+    end
+  end
   resources :keyvalues
   resources :users, only: [:show]
 
-    resources :posts do
-      resources :comments, only: [:create, :destroy]
+  resources :posts do
+    member do
+      post "like" => "posts#like"
+      post "unlike" => "posts#unlike"
+    end
+    resources :comments, only: [:create, :destroy]
   end
 
   #api
@@ -18,6 +32,8 @@ Rails.application.routes.draw do
       resources :keyvalues, controller: :keyvalues_api, only: [:index, :show]
       end
   end
+
+
 
 
 

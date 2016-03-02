@@ -1,4 +1,6 @@
 class Store < ActiveRecord::Base
+  acts_as_votable
+  
 	has_many :brandstores, dependent: :destroy
 	has_many :brands, through: :brandstores
 

@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+	acts_as_votable
+	
 	has_many :comments, dependent: :destroy
 
   validates :title, presence: true, length: {minimum: 5 }
