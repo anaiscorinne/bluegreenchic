@@ -31,5 +31,22 @@ module BlueGreen
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.action_mailer.default_url_options = { host: 'bluegreenchic.herokuapp.com' }
+# ActionMailer Config
+    # Setup for production - deliveries, no errors raised
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.default :charset => "utf-8"
+
+
+    config.action_mailer.smtp_settings = {
+        address: "smtp.gmail.com",
+        port: 587,
+        authentication: "plain",
+        enable_starttls_auto: true,
+        user_name: ENV["gmail_username"],
+        password: ENV["gmail_password"]
+    }
   end
 end
