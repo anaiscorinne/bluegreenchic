@@ -128,7 +128,7 @@ class StoresController < ApplicationController
 		redirect_to stores_path
 	end
 
-		def like 
+	def like 
   	@store = Store.find(params[:id])
   	@store.upvote_by current_user
   	@store.save
