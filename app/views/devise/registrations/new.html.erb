@@ -21,17 +21,17 @@
       <%= devise_error_messages! %>
   
       <div class="field">
-        <%= f.label :first_name %><br />
+        <%= f.label :first_name, :class => "form-label teal-text text-lighten-1" %><br />
         <%= f.text_field :first_name %>
       </div>
     <!-- <div class="col s12 m6"> -->
       <div class="field">
-        <%= f.label :last_name %><br />
+        <%= f.label :last_name, :class => "form-label teal-text text-lighten-1" %><br />
         <%= f.text_field :last_name %>
       </div>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email, :class => "form-label teal-text text-lighten-1" %><br />
         <%= f.email_field :email %>
       </div>
 
@@ -41,22 +41,22 @@
       </div>
  -->
       <div class="field">
-        <%= f.label :password %>
+        <%= f.label :password, :class => "form-label teal-text text-lighten-1" %>
         <% if @minimum_password_length %>
-        <em>(*<%= @minimum_password_length %> character minimum)</em>
+        <i>(*<%= @minimum_password_length %> character minimum)</i>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
       <div class="field">
-       <%= f.label :password_confirmation %><br />
+       <%= f.label :password_confirmation, :class => "form-label teal-text text-lighten-1" %><br />
        <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
       <div class="left sign-form-submit">
-        <a href="/" class="waves-effect waves-light btn">Cancel</a>
+        <a href="/" class="waves-effect waves-light btn log-in-button">Cancel</a>
       </div>
       <div class="right actions new-user-submit sign-form-submit">
-        <%= f.submit "Sign up", :class => "btn waves-effect waves-light" %>
+        <%= f.submit "Sign up", :class => "btn waves-effect waves-light log-in-button" %>
       </div>
       
       <% end %>

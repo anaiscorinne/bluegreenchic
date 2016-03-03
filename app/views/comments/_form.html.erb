@@ -1,9 +1,9 @@
 
 	<%= form_for([@post, @post.comments.build]) do |f| %>
-		<%= f.label :title %>
-		<%= f.text_field :title %>
+		<%= f.label :title, :class => "form-label teal-text text-lighten-1" %>
+		<%= f.text_field :title,  autofocus: true %>
 	<br>
-		<%= f.label :body %>
+		<%= f.label :body, :class => "form-label teal-text text-lighten-1" %>
 		<%= f.text_area :body %>
 	<br><br>
 		<button type="submit" class="btn-floating waves-effect waves-light red" name="commit"><i class="material-icons">add</i></button>

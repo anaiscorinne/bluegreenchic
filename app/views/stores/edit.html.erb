@@ -4,7 +4,7 @@
 <div class="row ">
   <div class="col s12 m12">
         <br>
-        <h5 class="center hp-h5-title">Edit Store<hr><br><%= @store.name %></h5>
+        <h5 class="center hp-h5-title">Edit <%= @store.name %></h5>
           <%= form_for [@store], html: { multipart: true } do |f| %>
                 <% if @store.errors.any? %>
                     <div>
@@ -16,62 +16,63 @@
                       </ul>
                     </div>
                 <% end %>
-            <%= f.label :name %>
+            <%= f.label :name, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :name, autofocus: true %>
             <br>
-            <%= f.label :website %>
+            <%= f.label :website, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :website %>
             <br>
-            <%= f.label :instagram %>
+            <%= f.label :instagram, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :instagram %>
             <br>
-            <%= f.label :ig_url %>
+            <%= f.label :ig_url, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :ig_url %>
             <br>
-            <%= f.label :ig_url_one %>
+            <%= f.label :ig_url_one, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :ig_url_one %>
             <br>
-            <%= f.label :ig_url_two %>
+            <%= f.label :ig_url_two, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :ig_url_two %>
             <br>
-            <%= f.label :ig_url_three %>
+            <%= f.label :ig_url_three, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :ig_url_three %>
             <br>
-            <%= f.label :ig_url_four %>
+            <%= f.label :ig_url_four, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :ig_url_four %>
             <br>
-            <%= f.label :desc_preview %>
+            <%= f.label :desc_preview, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :desc_preview %>
             <br>
-            <%= f.label :description %>
+            <%= f.label :description, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_area :description %>
             <br>
-            <%= f.label :address %>
+            <%= f.label :address, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_area :address %>
             <br>
-            <%= f.label :phone %>
+            <%= f.label :phone, :class => "form-label teal-text text-lighten-1" %>
             <%= f.text_field :phone %>
             <br>
             <ul>   
             <% Brand.all.each do |b| %>
                   <li class="form-brand-list"><%= check_box_tag "store[brand_ids][]", b.id, @store.brand_ids.include?(b.id), :id => "brand_#{b.id}" %>
-                  <%= label_tag :brand_ids, b.name, :for => "brand_#{b.id}" %></li>
+                  <%= label_tag :brand_ids, b.name, :for => "brand_#{b.id}", :class => "form-label teal-text text-lighten-1" %></li>
                 <% end %> 
             </ul>
             <br><br>
-            <label>Small Image</label><br>
+            <label class="form-label teal-text text-lighten-1">Small Image</label><br>
             <%= image_tag(@store.images[0].thumb.url) if @store.images? %><br>
             <%= f.file_field :images, multiple: true  %>
             <%= f.hidden_field :images_cache %>
             <br><br>
-            <label>Banner Image</label><br>
+            <label class="form-label teal-text text-lighten-1">Banner Image</label><br>
             <%= image_tag(@store.images[1].thumb.url) if @store.images? %><br>
             <%= f.file_field :images, multiple: true %>
             <%= f.hidden_field :images_cache %>
             <br><br>
-            <%= f.submit "Save Edits", :class => "waves-effect waves-light btn" %>
-			<%= link_to "Delete", @store, :method => "delete", :class => "waves-effect waves-light btn red", :data => {confirm: 'Are you sure?'}  %>
-            <br>
+            <%= f.submit "Save", :class => "log-in-button btn waves-effect waves-light" %>
+            <%= link_to("Cancel", stores_path, class: "btn waves-effect waves-light log-in-button red") %>
+            <br><br>
+			<%= link_to "Delete", @store, :method => "delete", :class => "log-in-button waves-effect waves-light btn red", :data => {confirm: 'Are you sure?'}  %>
           <% end %>
 
     </div>

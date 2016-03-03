@@ -17,27 +17,24 @@
             </div>
           <% end %>
 
-          <%= f.label :title %>
+          <%= f.label :title, :class => "form-label teal-text text-lighten-1" %>
           <%= f.text_field :title, autofocus: true %>
           <br>
-          <%= f.label :description %>
+          <%= f.label :description, :class => "form-label teal-text text-lighten-1" %>
           <%= f.text_field :description %>
           <br>
-          <%= f.label :content %>
-          <%= f.text_field :content, autofocus: true %>
+          <%= f.label :content, :class => "form-label teal-text text-lighten-1" %>
+          <%= f.text_area :content %>
           <br><br>
-          <label>Cover Image</label><br><br>
+          <label class="form-label teal-text text-lighten-1">Cover Image</label><br><br>
           <%= image_tag(@post.cover.thumb.url) if @post.cover? %><br>
           <%= f.file_field :cover %>
           <%= f.hidden_field :cover_cache %>
           <br><br>
-          <%= f.submit "Save" %>
+          <%= f.submit "Save", :class => "log-in-button btn waves-effect waves-light" %>
+          <%= link_to("Cancel", brands_path, class: "log-in-button waves-effect waves-light btn red") %>
           <br><br>
-          <%= link_to "Delete", @post, :method => "delete", :class => "waves-effect waves-light btn red", :data => {confirm: 'Are you sure?'}  %>
-          <br>
-          <%= link_to("Cancel", brands_path) %>
-          <br>
-          <%= link_to("Home", "/") %>
+          <%= link_to "Delete", @post, :method => "delete", :class => "log-in-button waves-effect waves-light btn red", :data => {confirm: 'Are you sure?'}  %>
         <% end %>
     </div>
   </div>

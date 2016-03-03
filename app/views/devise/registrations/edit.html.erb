@@ -15,7 +15,7 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, :class => "form-label teal-text text-lighten-1" %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
@@ -24,41 +24,40 @@
   <% end %>
 
   <div class="field">
-      <%= f.label :first_name %><i> (leave blank if you don't want to change it)</i><br />
+      <%= f.label :first_name, :class => "form-label teal-text text-lighten-1" %><i> (leave blank if you don't want to change it)</i><br />
       <%= f.text_field :first_name %>
     </div>
     <!-- <div class="col s12 m6"> -->
   <div class="field">
-    <%= f.label :last_name %><i> (leave blank if you don't want to change it)</i><br />
+    <%= f.label :last_name, :class => "form-label teal-text text-lighten-1" %><i> (leave blank if you don't want to change it)</i><br />
     <%= f.text_field :last_name %>
   </div>
 
   <div class="field">
-        <%= f.label :birthday %><i> (leave blank if you don't want to change it)</i><br />
+        <%= f.label :birthday, :class => "form-label teal-text text-lighten-1" %><i> (leave blank if you don't want to change it)</i><br />
         <%= f.date_field :birthday %>
       </div>
 
   <div class="field">
-    <%= f.label :password %> <i> (leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, :class => "form-label teal-text text-lighten-1" %> <i> (leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, :class => "form-label teal-text text-lighten-1" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i> (we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password, :class => "form-label teal-text text-lighten-1" %> <i> (we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %><br>
-    <%= link_to "Back", :back %>
+    <%= f.submit "Update", :class => "log-in-button btn waves-effect waves-light" %><br><br>
+    <%= link_to "Go back", :back, :class => "log-in-back" %>
   </div>
 <% end %>
 <br><br>
-<h5 class="login-form-title">Cancel my account</h5>
-<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "log-in-button red btn waves-effect waves-light" %>
 

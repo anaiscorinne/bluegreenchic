@@ -15,38 +15,40 @@
                       </ul>
                     </div>
                 <% end %>
-                <%= f.label :name %>
+                <%= f.label :name, :class => "form-label teal-text text-lighten-1" %>
                 <%= f.text_field :name, autofocus: true %>
                 <br>
-                <%= f.label :description %>
+                <%= f.label :description, :class => "form-label teal-text text-lighten-1" %>
                 <%= f.text_area :description %>
                 <br>
-                <%= f.label :website %>
+                <%= f.label :website, :class => "form-label teal-text text-lighten-1" %>
                 <%= f.text_field :website %>
                 <br>
-                <%= f.label :instagram %>
+                <%= f.label :instagram, :class => "form-label teal-text text-lighten-1" %>
                 <%= f.text_field :instagram %>
                 <br>
-                <%= f.label :twitter %>
+                <%= f.label :twitter, :class => "form-label teal-text text-lighten-1" %>
                 <%= f.text_field :twitter %>
                 <br>
-                <%= f.label :facebook %>
+                <%= f.label :facebook, :class => "form-label teal-text text-lighten-1" %>
                 <%= f.text_field :facebook %>
                 <br>
                 <ul>   
                   <% Keyvalue.all.each do |value| %>
                     <li class="form-keyvalue-list"><%= check_box_tag "brand[keyvalue_ids][]", value.id, @brand.keyvalue_ids.include?(value.id), :id => "value_#{value.id}" %>
-                    <%= label_tag :keyvalue_ids, value.name, :for => "value_#{value.id}" %></li>
+                    <%= label_tag :keyvalue_ids, value.name, :for => "value_#{value.id}", :class => "form-label teal-text text-lighten-1" %></li>
                   <% end %>
                 </ul>
                 <br><br>
-                <label>Image</label><br><br>
+                <label class="form-label teal-text text-lighten-1">Image</label><br><br>
                 <%= image_tag(@brand.image.thumb.url) if @brand.image? %><br>
                 <%= f.file_field :image %>
                 <%= f.hidden_field :image_cache %>
                 <br><br>
-                <%= f.submit "Save Edits", :class => "waves-effect waves-light btn" %>
-				<%= link_to "Delete", @brand, :method => "delete", :class => "waves-effect waves-light btn red", :data => {confirm: 'Are you sure?'}  %>
+                <%= f.submit "Save Edits", :class => "log-in-button btn waves-effect waves-light" %>
+                <%= link_to("Cancel", brands_path, class: "btn waves-effect waves-light log-in-button red") %>
+                <br><br>
+				<%= link_to "Delete", @brand, :method => "delete", :class => "log-in-button waves-effect waves-light btn red", :data => {confirm: 'Are you sure?'}  %>
                 <br>
               <% end %>
 

@@ -3,7 +3,7 @@
 <div class="container">
 <div class="row ">
   <div class="col s12 m12">
-        <br><h5 class="center hp-h5-title">Add a new Value</h5><hr><br>
+        <br><h5 class="center hp-h5-title">Add a new Value</h5><br>
               <%= form_for [@keyvalue] do |f| %>
                 <% if @keyvalue.errors.any? %>
                     <div>
@@ -15,20 +15,18 @@
                       </ul>
                     </div>
                 <% end %>
-                <%= f.label :name %>
+                <%= f.label :name, :class => "form-label teal-text text-lighten-1" %>
                 <%= f.text_field :name, autofocus: true %>
                 <br>
-                <%= f.label :description %>
+                <%= f.label :description, :class => "form-label teal-text text-lighten-1" %>
                 <%= f.text_area :description %>
                 <br>
-                <%= f.label :icon %>
+                <%= f.label :icon, :class => "form-label teal-text text-lighten-1" %>
                 <%= f.text_field :icon %>
                 <br>
-                <%= f.submit "Save" %>
-                <br>
-                <%= link_to("Cancel", brands_path) %>
-                <br>
-                <%= link_to("Home", "/") %>
+                <%= f.submit "Save", :class => "log-in-button btn waves-effect waves-light" %>
+                <%= link_to("Cancel", brands_path, class: "btn waves-effect waves-light log-in-button red") %>
+                
               <% end %>
 
         </div>
