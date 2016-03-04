@@ -6,14 +6,16 @@
         <!-- <div class="container brand-search-bar fixed-brand-search"> -->
         <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li>
+          <div class="search-select">
             <form id="brand">
               
                 <%= form_tag(stores_path, :method => "get") do %>
-                <%= text_field_tag :search, params[:search], placeholder: " look up by brand names", :class => "brand-search-form"%>
+                <%= text_field_tag :search, params[:search], placeholder: " look up by brand names", :class => "brand-search-form placeholder"%>
                 <%= submit_tag "search", :class => "brand-form-submit" %>
                 <% end %>
               
             </form>
+            </div>
           </li>
         </ul>
         

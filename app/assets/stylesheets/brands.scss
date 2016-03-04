@@ -113,6 +113,17 @@ li.keyvalue-brand-list-li {
   color: #757575 !important;
 }
 
+.search-select ::-webkit-input-placeholder-shown {
+  font-size: 18px;
+  color: #f48fb1;
+}
+
+.search-select ::-webkit-input-placeholder {
+	font-family: 'Open Sans Condensed', sans-serif !important;
+  font-size: 18px !important;
+  color: #f48fb1;
+  opacity: 1;
+}
 
 
 

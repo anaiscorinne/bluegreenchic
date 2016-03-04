@@ -110,12 +110,6 @@ div.row {
   font-size: 15px;
 }
 
-.store-search-form {
-  width: 200px;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 20px;
-}
-
 #store-area input[type=text] {
   color: #757575 !important;
 }
@@ -135,4 +129,23 @@ div.row {
 	color: #ffab40;
 	text-transform: lowercase !important;
 	margin-right: 0 !important;
+}
+
+
+.store-search-form {
+  width: 200px;
+  font-family: 'Open Sans Condensed', sans-serif !important;
+  font-size: 20px !important;
+}
+
+.store-search-form ::-webkit-input-placeholder-shown {
+	font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  color: #f48fb1;
+}
+
+.store-search-form ::-webkit-input-placeholder {
+	font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 16px;
+  color: #f48fb1;
 }
