@@ -9,7 +9,7 @@ protect_from_forgery with: :null_session
 		if params[:search]
 			@posts = Post.where('name iLIKE ?', "%#{params[:search]}%").order("name DESC")
 		else
-			@posts = Post.all
+			@posts = Post.all.sort { |a,b| b.created_at <=> a.created_at }
 		end
   end
 
