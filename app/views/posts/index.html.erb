@@ -16,10 +16,15 @@
     <div class="col s12 m12">
       <ul class="collection collection-posts">
         <li class="collection-item avatar">
-          <%= image_tag post.cover.thumb.url, class: "circle" %>
+        <div class="row">
+        <div class="col s3 m3">
+          <%= image_tag post.cover.thumb.url %>
+        </div>
+        <div class="col s9 m9">
           <a href="/posts/<%=post.id %>" class="title post-title"><%= post.title %></a>
           <p class="post-date grey-text text-darken-2"><%= post.created_at.strftime("%d %B %Y") %></p><hr>
           <a href="/posts/<%=post.id %>"><p class="post-description grey-text"><%= post.description %></p></a>
+         </div></div>
           <span class="secondary-content">
             <% if current_user %>
               <% if current_user.voted_for? post %>
